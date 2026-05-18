@@ -104,11 +104,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const appContainer = document.getElementById('app-container');
 
   const introLines = [
-    { text: "Initializing portfolio...", prompt: true, delay: 600 },
-    { text: "Loading developer profile...", prompt: true, delay: 600 },
+    { text: "Initializing portfolio...", prompt: true, delay: 400 },
+    { text: "Loading developer profile...", prompt: true, delay: 400 },
     { text: "Hello, World!", prompt: true, delay: 400 },
     { text: "I'm Jasmine A. Nalda", prompt: true, delay: 400 },
-    { text: "Full-Stack Developer", prompt: true, delay: 300 }
+    { text: "Full-Stack Developer", prompt: true, delay: 400 }
   ];
 
   let lineIndex = 0;
@@ -163,9 +163,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (charIndex < lineData.text.length) {
         textSpan.innerText += lineData.text.charAt(charIndex);
         charIndex++;
-        typingTimeout = setTimeout(typeLine, 35); // typing speed
+        typingTimeout = setTimeout(typeLine, 50); // typing speed 50ms per character
       } else {
-        // Move to the next line after the line's custom delay
+        // Move to the next line after the line's custom delay (400ms pause)
         lineIndex++;
         charIndex = 0;
         typingTimeout = setTimeout(typeLine, lineData.delay);
@@ -174,8 +174,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Auto scroll terminal output
       terminalOutput.scrollTop = terminalOutput.scrollHeight;
     } else {
-      // Intro complete, transition
-      setTimeout(finishIntro, 1200);
+      // Intro complete, wait 800ms then transition to main layout
+      setTimeout(finishIntro, 800);
     }
   }
 
@@ -212,14 +212,14 @@ document.addEventListener('DOMContentLoaded', () => {
     skipIntroBtn.addEventListener('click', skipIntro);
   }
 
-  // Start the terminal loop immediately
-  typeLine();
+  // Page load delay: Entire page fades in, navbar slides down, then terminal starts
+  setTimeout(typeLine, 1000);
 
 
   // ==========================================================================
   // PHASE 2: HERO CAROUSEL TYPING LOOP
   // ==========================================================================
-  const roles = ["Full-Stack Developer", "Mobile App Developer", "Data Visualization Specialist", "UI/UX Designer"];
+  const roles = ["Full-Stack Developer", "Mobile App Developer", "Data Visualization", "UI/UX Designer"];
   let roleIndex = 0;
   let roleCharIndex = 0;
   let isDeleting = false;
@@ -238,16 +238,16 @@ document.addEventListener('DOMContentLoaded', () => {
       roleCharIndex++;
     }
 
-    let typingSpeed = isDeleting ? 40 : 80;
+    let typingSpeed = isDeleting ? 40 : 60; // 60ms forward typing speed
 
     if (!isDeleting && roleCharIndex === currentRole.length) {
-      // Pause at full word before deleting
-      typingSpeed = 2000;
+      // Pause at full word before deleting (1.5s pause)
+      typingSpeed = 1500;
       isDeleting = true;
     } else if (isDeleting && roleCharIndex === 0) {
       isDeleting = false;
       roleIndex = (roleIndex + 1) % roles.length;
-      typingSpeed = 500; // Pause before typing next word
+      typingSpeed = 400; // Pause before typing next word (400ms pause)
     }
 
     setTimeout(initHeroTyping, typingSpeed);
@@ -390,6 +390,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // FLOATING BACKGROUND PARTICLES (HERO ONLY)
   // ==========================================================================
   function initHeroParticles() {
+    // Safety check: do not generate particles if prefers-reduced-motion is active
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
     const container = document.getElementById('hero-particles');
     if (!container) return;
 
@@ -404,7 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const top = Math.random() * 100; // 0% to 100%
       const duration = Math.random() * 4 + 3; // 3s to 7s
       const delay = Math.random() * 5; // 0s to 5s
-      const opacity = Math.random() * 0.4 + 0.2; // 0.2 to 0.6
+      const opacity = Math.random() * 0.3 + 0.2; // 0.2 to 0.5 opacity
 
       particle.style.width = size + 'px';
       particle.style.height = size + 'px';
@@ -413,6 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
       particle.style.opacity = opacity;
       particle.style.animationDuration = duration + 's';
       particle.style.animationDelay = delay + 's';
+      particle.style.backgroundColor = 'rgba(167,139,250,0.5)'; // Color spec: rgba(167,139,250,0.5)
 
       container.appendChild(particle);
     }
@@ -433,7 +439,7 @@ document.addEventListener('DOMContentLoaded', () => {
         svgWrapper.innerHTML = `
           <svg class="timeline-svg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
             <path class="timeline-scroll-path" fill="none" stroke="rgba(167, 139, 250, 0.15)" stroke-width="2" />
-            <path class="timeline-scroll-draw" fill="none" stroke="var(--accent)" stroke-width="2" />
+            <path class="timeline-scroll-draw" fill="none" stroke="rgba(167, 139, 250, 0.6)" stroke-width="2" />
           </svg>
         `;
         timeline.insertBefore(svgWrapper, timeline.firstChild);
@@ -496,8 +502,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
       
-      // Bind scroll and resize listeners for responsiveness
-      window.addEventListener('scroll', updatePaths);
+      // Sync draw path updates smoothly using requestAnimationFrame for scroll events
+      let ticking = false;
+      const onScroll = () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updatePaths();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      };
+      
+      window.addEventListener('scroll', onScroll);
       window.addEventListener('resize', updatePaths);
       
       // Trigger paths initially
@@ -525,11 +542,36 @@ document.addEventListener('DOMContentLoaded', () => {
       rootMargin: "0px 0px -40px 0px"
     });
 
-    // Stagger tech stack item delay dynamically (50ms per item inside each category grid)
+    // Stagger tech stack item delay dynamically (60ms per icon inside each category grid)
     document.querySelectorAll('.tech-grid').forEach(grid => {
       const items = grid.querySelectorAll('.tech-item');
       items.forEach((item, index) => {
-        item.style.transitionDelay = (index * 50) + 'ms';
+        item.style.transitionDelay = (index * 60) + 'ms';
+      });
+    });
+
+    // Stagger certification cards dynamically (100ms per card inside grid)
+    document.querySelectorAll('.cert-grid').forEach(grid => {
+      const cards = grid.querySelectorAll('.scroll-fade-card');
+      cards.forEach((card, index) => {
+        card.style.transitionDelay = (index * 100) + 'ms';
+      });
+    });
+
+    // Stagger contact info items dynamically (100ms per link)
+    document.querySelectorAll('.contact-info-panel').forEach(panel => {
+      const items = panel.querySelectorAll('.contact-item');
+      items.forEach((item, index) => {
+        item.classList.add('scroll-fade-card'); // ensure they fade in
+        item.style.transitionDelay = (index * 100) + 'ms';
+      });
+    });
+
+    // Stagger project tech tag pills dynamically (50ms per pill inside each card)
+    document.querySelectorAll('.project-card').forEach(card => {
+      const pills = card.querySelectorAll('.tech-tag');
+      pills.forEach((pill, index) => {
+        pill.style.transitionDelay = (index * 50) + 'ms';
       });
     });
 
