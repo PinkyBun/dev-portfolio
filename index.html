@@ -1,0 +1,922 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jasmine A. Nalda - Information Technology Fresh Graduate & Full-Stack Developer. View projects, experience, skills, and academic background.">
+  <title>Jasmine A. Nalda | IT Portfolio</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/icons/favicon.svg">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  
+  <!-- Devicon CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+  <!-- Tabler Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Terminal Intro Animation (Phase 1) -->
+  <div id="terminal-intro" class="terminal-intro">
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="btn close"></span>
+          <span class="btn minimize"></span>
+          <span class="btn maximize"></span>
+        </div>
+        <div class="terminal-title">root@jn-portfolio:~</div>
+      </div>
+      <div class="terminal-body" id="terminal-output">
+        <!-- Lines will be dynamically typed here -->
+      </div>
+      <div class="terminal-footer">
+        <button id="skip-intro" class="skip-btn">Skip Intro &gt;&gt;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Website Container (Initially Hidden/Blurred during terminal phase) -->
+  <div id="app-container" class="app-hidden">
+    
+    <!-- Navbar -->
+    <header class="navbar-container" id="navbar">
+      <div class="navbar-wrapper container">
+        <a href="#hero" class="logo" aria-label="Jasmine Nalda Logo">
+          <span>&lt;/&gt;</span> JN
+        </a>
+        
+        <nav class="nav-menu" id="nav-menu">
+          <ul class="nav-list">
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+        
+        <div class="navbar-actions">
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Light/Dark Theme">
+            <!-- SVG Moon -->
+            <svg id="theme-icon-dark" class="theme-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <!-- SVG Sun -->
+            <svg id="theme-icon-light" class="theme-icon hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+          
+          <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      
+      <!-- Hero Section (Phase 2) -->
+      <section id="hero" class="hero-section section-bg-1">
+        <div id="hero-particles" class="hero-particles-container"></div>
+        <div class="container hero-wrapper">
+          <!-- Hero Left Column -->
+          <div class="hero-content">
+            <div class="hero-intro monospace">&gt; Hello, World!</div>
+            <h1 class="hero-title">I'm <span class="text-highlight">Jasmine A. Nalda</span></h1>
+            <h2 class="hero-role-wrapper">
+              a <span id="typing-role" class="monospace text-highlight"></span><span class="cursor-blink">|</span>
+            </h2>
+            <p class="hero-description">
+              A highly motivated Information Technology graduate passionate about building functional, visually engaging, and accessible web and mobile applications.
+            </p>
+            <div class="hero-actions">
+              <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Resume</a>
+              <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+            <div class="hero-socials">
+              <a href="mailto:jasminenalda20@gmail.com" class="social-link" aria-label="Email Jasmine">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </a>
+              <a href="https://github.com/PinkyBun" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub Profile">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+              </a>
+              <a href="https://linkedin.com/in/jasminenalda" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Profile">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Hero Right Column (3D Photo Container) -->
+          <div class="hero-image-area">
+            <div class="blob-backdrop"></div>
+            <div class="photo-card-3d" id="photo-card">
+              <div class="photo-card-front">
+                <img src="images/profile/profile-dark.jpg" alt="Jasmine A. Nalda Profile Dark Mode" class="profile-img">
+              </div>
+              <div class="photo-card-back">
+                <img src="images/profile/profile-light.jpg" alt="Jasmine A. Nalda Profile Light Mode" class="profile-img">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Me Section -->
+      <section id="about" class="about-section section-bg-2 scroll-fade">
+        <div class="container">
+          <div class="section-header-centered">
+            <span class="monospace section-label">// ABOUT_ME</span>
+            <h2 class="section-title">Who is Jasmine?</h2>
+            <div class="title-underline"></div>
+          </div>
+          
+          <!-- Glassmorphic Container -->
+          <div class="about-container glass">
+            <!-- Left: Stat Cards -->
+            <div class="about-stats-column">
+              <div class="stat-card glass">
+                <span class="stat-icon"><i class="ti ti-code"></i></span>
+                <div class="stat-info">
+                  <div class="stat-title">Role</div>
+                  <div class="stat-value">Full-Stack Developer</div>
+                </div>
+              </div>
+              
+              <div class="stat-card glass">
+                <span class="stat-icon"><i class="ti ti-map-pin"></i></span>
+                <div class="stat-info">
+                  <div class="stat-title">Location</div>
+                  <div class="stat-value">Malabon City, PH</div>
+                </div>
+              </div>
+              
+              <div class="stat-card glass">
+                <span class="stat-icon"><i class="ti ti-school"></i></span>
+                <div class="stat-info">
+                  <div class="stat-title">Education</div>
+                  <div class="stat-value">Fresh Graduate</div>
+                </div>
+              </div>
+              
+              <div class="stat-card glass">
+                <span class="stat-icon"><i class="ti ti-briefcase"></i></span>
+                <div class="stat-info">
+                  <div class="stat-title">Status</div>
+                  <div class="stat-value status-active">Open to Work</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Vertical Divider -->
+            <div class="about-divider"></div>
+            
+            <!-- Right: Paragraph Blocks -->
+            <div class="about-paragraphs-column">
+              <div class="about-text-block">
+                <h3 class="about-prompt monospace">&gt; WHO I AM</h3>
+                <p class="about-paragraph">
+                  I am a fresh graduate in Information Technology from Systems Plus Computer College. Driven by a deep interest in software engineering and application design, I enjoy creating highly intuitive systems that bridge technical capabilities with functional accessibility. My background has trained me to approach complex problems systematically and develop clean, maintainable code.
+                </p>
+              </div>
+              
+              <div class="about-text-block">
+                <h3 class="about-prompt monospace">&gt; WHAT I CAN DO</h3>
+                <p class="about-paragraph">
+                  My technical skillset spans multiple disciplines, including robust full-stack web architectures with PHP and Laravel, responsive mobile development with Flutter and Dart, and database administration with SQL. Additionally, I utilize analytics tools like Power BI and Excel to extract and model analytical views from large datasets, enabling datacentric decision-making.
+                </p>
+              </div>
+              
+              <div class="about-text-block">
+                <h3 class="about-prompt monospace">&gt; WHAT I'M LOOKING FOR</h3>
+                <p class="about-paragraph">
+                  I am currently seeking full-time opportunities as an entry-level Full-Stack Developer, Web Developer, or Mobile Engineer. I am excited to contribute to collaborative environments where I can leverage my academic foundation, adapt to cutting-edge technologies, and build impactful solutions alongside senior technical professionals.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tech Stack Section -->
+      <section id="skills" class="skills-section section-bg-1">
+        <div class="container">
+          <div class="section-header-centered">
+            <span class="monospace section-label">// TECH_STACK</span>
+            <h2 class="section-title">Technologies I Work With</h2>
+            <div class="title-underline"></div>
+          </div>
+          
+          <div class="skills-grouped-container">
+            
+            <!-- Frontend Group -->
+            <div class="tech-group-card glass scroll-fade-section">
+              <h3 class="tech-group-title monospace">FRONTEND</h3>
+              <div class="tech-grid">
+                <div class="tech-item" title="HTML5">
+                  <div class="tech-icon">
+                    <i class="devicon-html5-plain colored"></i>
+                  </div>
+                  <span class="tech-label">HTML5</span>
+                </div>
+                <div class="tech-item" title="CSS3">
+                  <div class="tech-icon">
+                    <i class="devicon-css3-plain colored"></i>
+                  </div>
+                  <span class="tech-label">CSS3</span>
+                </div>
+                <div class="tech-item" title="JavaScript">
+                  <div class="tech-icon">
+                    <i class="devicon-javascript-plain colored"></i>
+                  </div>
+                  <span class="tech-label">JavaScript</span>
+                </div>
+                <div class="tech-item" title="Figma">
+                  <div class="tech-icon">
+                    <i class="devicon-figma-plain colored"></i>
+                  </div>
+                  <span class="tech-label">Figma</span>
+                </div>
+                <div class="tech-item" title="Canva">
+                  <div class="tech-icon">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/canva.svg" width="48" height="48" style="filter: invert(1);">
+                  </div>
+                  <span class="tech-label">Canva</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Backend Group -->
+            <div class="tech-group-card glass scroll-fade-section">
+              <h3 class="tech-group-title monospace">BACKEND</h3>
+              <div class="tech-grid">
+                <div class="tech-item" title="Laravel">
+                  <div class="tech-icon">
+                    <i class="devicon-laravel-plain colored"></i>
+                  </div>
+                  <span class="tech-label">Laravel</span>
+                </div>
+                <div class="tech-item" title="PHP">
+                  <div class="tech-icon">
+                    <i class="devicon-php-plain colored"></i>
+                  </div>
+                  <span class="tech-label">PHP</span>
+                </div>
+                <div class="tech-item" title="XAMPP">
+                  <div class="tech-icon">
+                    <i class="devicon-xampp-plain colored"></i>
+                  </div>
+                  <span class="tech-label">XAMPP</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile Group -->
+            <div class="tech-group-card glass scroll-fade-section">
+              <h3 class="tech-group-title monospace">MOBILE</h3>
+              <div class="tech-grid">
+                <div class="tech-item" title="Flutter">
+                  <div class="tech-icon">
+                    <i class="devicon-flutter-plain colored"></i>
+                  </div>
+                  <span class="tech-label">Flutter</span>
+                </div>
+                <div class="tech-item" title="Dart">
+                  <div class="tech-icon">
+                    <i class="devicon-dart-plain colored"></i>
+                  </div>
+                  <span class="tech-label">Dart</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Database Group -->
+            <div class="tech-group-card glass scroll-fade-section">
+              <h3 class="tech-group-title monospace">DATABASE</h3>
+              <div class="tech-grid">
+                <div class="tech-item" title="MySQL">
+                  <div class="tech-icon">
+                    <i class="devicon-mysql-plain colored"></i>
+                  </div>
+                  <span class="tech-label">MySQL</span>
+                </div>
+                <div class="tech-item" title="SQL">
+                  <div class="tech-icon">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/sqlite.svg" width="48" height="48" class="si-svg-icon">
+                  </div>
+                  <span class="tech-label">SQL</span>
+                </div>
+                <div class="tech-item" title="Snowflake">
+                  <div class="tech-icon">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/snowflake.svg" width="48" height="48" style="filter: invert(1);">
+                  </div>
+                  <span class="tech-label">Snowflake</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Data & Analytics Group -->
+            <div class="tech-group-card glass scroll-fade-section">
+              <h3 class="tech-group-title monospace">DATA & ANALYTICS</h3>
+              <div class="tech-grid">
+                <div class="tech-item" title="Power BI">
+                  <div class="tech-icon">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/powerbi.svg" width="48" height="48" style="filter: invert(1);">
+                  </div>
+                  <span class="tech-label">Power BI</span>
+                </div>
+                <div class="tech-item" title="Excel">
+                  <div class="tech-icon">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoftexcel.svg" width="48" height="48" class="si-svg-icon">
+                  </div>
+                  <span class="tech-label">Excel</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tools Group -->
+            <div class="tech-group-card glass scroll-fade-section">
+              <h3 class="tech-group-title monospace">TOOLS</h3>
+              <div class="tech-grid">
+                <div class="tech-item" title="Git">
+                  <div class="tech-icon">
+                    <i class="devicon-git-plain colored"></i>
+                  </div>
+                  <span class="tech-label">Git</span>
+                </div>
+                <div class="tech-item" title="GitHub">
+                  <div class="tech-icon">
+                    <i class="devicon-github-original colored"></i>
+                  </div>
+                  <span class="tech-label">GitHub</span>
+                </div>
+                <div class="tech-item" title="JIRA">
+                  <div class="tech-icon">
+                    <i class="devicon-jira-plain colored"></i>
+                  </div>
+                  <span class="tech-label">JIRA</span>
+                </div>
+                <div class="tech-item" title="VS Code">
+                  <div class="tech-icon">
+                    <i class="devicon-vscode-plain colored"></i>
+                  </div>
+                  <span class="tech-label">VS Code</span>
+                </div>
+                <div class="tech-item" title="Google Workspace">
+                  <div class="tech-icon">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/google.svg" width="48" height="48" class="si-svg-icon">
+                  </div>
+                  <span class="tech-label">Google Workspace</span>
+                </div>
+                <div class="tech-item" title="MS Office">
+                  <div class="tech-icon">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoftoffice.svg" width="48" height="48" style="filter: invert(1);">
+                  </div>
+                  <span class="tech-label">MS Office</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects & Experience Section -->
+      <section id="projects" class="projects-section section-bg-2">
+        <div class="container">
+          <div class="section-header-centered scroll-fade-section">
+            <span class="monospace section-label">// PROJECTS_AND_EXPERIENCE</span>
+            <h2 class="section-title">Projects & Experience</h2>
+            <div class="title-underline"></div>
+          </div>
+          
+          <div class="timeline-v2" id="timeline-container">
+
+            <!-- 2026 -->
+            <div class="tl-group scroll-fade-timeline" data-year="2026">
+              <div class="tl-year monospace">2026</div>
+              <div class="tl-dot-wrapper">
+                <span class="tl-dot"></span>
+              </div>
+              <div class="tl-right">
+                <div class="project-card glass scroll-fade-card" data-project="moneysense">
+                  <div class="project-card-header">
+                    <span class="capstone-badge monospace">&#9733; CAPSTONE</span>
+                    <h3 class="project-card-title">
+                      <span class="dot-indicator dot-purple"></span>
+                      MoneySense Mobile
+                    </h3>
+                  </div>
+                  <div class="project-tech-tags">
+                    <span class="tech-tag tag-flutter">Flutter</span>
+                    <span class="tech-tag tag-dart">Dart</span>
+                    <span class="tech-tag tag-yolo">YOLOv8</span>
+                    <span class="tech-tag tag-resnet">ResNet-18</span>
+                    <span class="tech-tag tag-ocr">ML Kit OCR</span>
+                  </div>
+                  <p class="project-card-desc">Accessibility-focused mobile app enabling visually impaired users to identify Philippine banknotes using machine learning.</p>
+                  <div class="project-card-actions">
+                    <button class="btn-detail" onclick="openProjectModal('moneysense')">View Details &rarr;</button>
+                  </div>
+                </div>
+                <div class="project-card glass scroll-fade-card">
+                  <div class="project-card-header">
+                    <span class="capstone-badge badge-intern monospace">&#128188; INTERNSHIP</span>
+                    <h3 class="project-card-title">
+                      <span class="dot-indicator dot-teal"></span>
+                      DOTr &mdash; MRT3 Depot Office
+                    </h3>
+                  </div>
+                  <div class="project-tech-tags">
+                    <span class="tech-tag tag-it">IT Operations</span>
+                    <span class="tech-tag tag-records">Records Management</span>
+                  </div>
+                  <p class="project-card-desc">Applied IT knowledge in a real-world government environment supporting digital operations and data management.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2025 -->
+            <div class="tl-group scroll-fade-timeline" data-year="2025">
+              <div class="tl-year monospace">2025</div>
+              <div class="tl-dot-wrapper">
+                <span class="tl-dot"></span>
+              </div>
+              <div class="tl-right">
+                <div class="project-card glass scroll-fade-card" data-project="rfid">
+                  <div class="project-card-header">
+                    <h3 class="project-card-title">
+                      <span class="dot-indicator dot-blue"></span>
+                      Attendance System with RFID
+                    </h3>
+                  </div>
+                  <div class="project-tech-tags">
+                    <span class="tech-tag tag-laravel">Laravel</span>
+                    <span class="tech-tag tag-php">PHP</span>
+                    <span class="tech-tag tag-xampp">XAMPP</span>
+                    <span class="tech-tag tag-rfid">RFID</span>
+                  </div>
+                  <p class="project-card-desc">Web-based attendance monitoring system integrated with RFID for automated and accurate record tracking.</p>
+                  <div class="project-card-actions">
+                    <button class="btn-detail" onclick="openProjectModal('rfid')">View Details &rarr;</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2024 -->
+            <div class="tl-group scroll-fade-timeline" data-year="2024">
+              <div class="tl-year monospace">2024</div>
+              <div class="tl-dot-wrapper">
+                <span class="tl-dot"></span>
+              </div>
+              <div class="tl-right">
+                <div class="project-card glass scroll-fade-card" data-project="inventory">
+                  <div class="project-card-header">
+                    <h3 class="project-card-title">
+                      <span class="dot-indicator dot-amber"></span>
+                      Inventory Management System
+                    </h3>
+                  </div>
+                  <div class="project-tech-tags">
+                    <span class="tech-tag tag-laravel">Laravel</span>
+                    <span class="tech-tag tag-php">PHP</span>
+                    <span class="tech-tag tag-xampp">XAMPP</span>
+                    <span class="tech-tag tag-sql">SQL</span>
+                  </div>
+                  <p class="project-card-desc">Database-driven system for real-time stock monitoring and inventory control.</p>
+                  <div class="project-card-actions">
+                    <button class="btn-detail" onclick="openProjectModal('inventory')">View Details &rarr;</button>
+                  </div>
+                </div>
+                <div class="project-card glass scroll-fade-card" data-project="datavis">
+                  <div class="project-card-header">
+                    <h3 class="project-card-title">
+                      <span class="dot-indicator dot-orange"></span>
+                      Data Visualization Dashboards
+                    </h3>
+                  </div>
+                  <div class="project-tech-tags">
+                    <span class="tech-tag tag-powerbi">Power BI</span>
+                    <span class="tech-tag tag-excel">Excel</span>
+                  </div>
+                  <p class="project-card-desc">Interactive dashboards transforming raw data into clear and actionable business insights.</p>
+                  <div class="project-card-actions">
+                    <button class="btn-detail" onclick="openProjectModal('datavis')">View Details &rarr;</button>
+                  </div>
+                </div>
+                <div class="project-card glass scroll-fade-card" data-project="ui">
+                  <div class="project-card-header">
+                    <h3 class="project-card-title">
+                      <span class="dot-indicator dot-pink"></span>
+                      Prototyping &amp; UI Design
+                    </h3>
+                  </div>
+                  <div class="project-tech-tags">
+                    <span class="tech-tag tag-figma">Figma</span>
+                    <span class="tech-tag tag-canva">Canva</span>
+                  </div>
+                  <p class="project-card-desc">UI prototypes, wireframes, and visual materials for web and mobile interfaces.</p>
+                  <div class="project-card-actions">
+                    <button class="btn-detail" onclick="openProjectModal('ui')">View Details &rarr;</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2022-2023 -->
+            <div class="tl-group scroll-fade-timeline" data-year="2022-2023">
+              <div class="tl-year monospace">2022 &ndash; 2023</div>
+              <div class="tl-dot-wrapper">
+                <span class="tl-dot"></span>
+              </div>
+              <div class="tl-right">
+                <div class="project-card glass scroll-fade-card" data-project="ecommerce">
+                  <div class="project-card-header">
+                    <h3 class="project-card-title">
+                      <span class="dot-indicator dot-green"></span>
+                      E-Commerce Website
+                    </h3>
+                  </div>
+                  <div class="project-tech-tags">
+                    <span class="tech-tag tag-laravel">Laravel</span>
+                    <span class="tech-tag tag-php">PHP</span>
+                    <span class="tech-tag tag-xampp">XAMPP</span>
+                    <span class="tech-tag tag-sql">SQL</span>
+                  </div>
+                  <p class="project-card-desc">Full-stack e-commerce platform with product listing, shopping cart, and order tracking.</p>
+                  <div class="project-card-actions">
+                    <button class="btn-detail" onclick="openProjectModal('ecommerce')">View Details &rarr;</button>
+                  </div>
+                </div>
+                <div class="project-card glass scroll-fade-card" data-project="gym">
+                  <div class="project-card-header">
+                    <h3 class="project-card-title">
+                      <span class="dot-indicator dot-coral"></span>
+                      Gym Monitoring System
+                    </h3>
+                  </div>
+                  <div class="project-tech-tags">
+                    <span class="tech-tag tag-laravel">Laravel</span>
+                    <span class="tech-tag tag-php">PHP</span>
+                    <span class="tech-tag tag-xampp">XAMPP</span>
+                    <span class="tech-tag tag-sql">SQL</span>
+                  </div>
+                  <p class="project-card-desc">Web-based system for gym membership and attendance management.</p>
+                  <div class="project-card-actions">
+                    <button class="btn-detail" onclick="openProjectModal('gym')">View Details &rarr;</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- The Beginning -->
+            <div class="tl-group scroll-fade-timeline" data-year="beginning">
+              <div class="tl-year monospace">The Beginning</div>
+              <div class="tl-dot-wrapper">
+                <span class="tl-dot"></span>
+              </div>
+              <div class="tl-right">
+                <div class="project-card glass scroll-fade-card">
+                  <div class="project-card-header">
+                    <h3 class="project-card-title">
+                      <span class="dot-indicator dot-gray"></span>
+                      Calculator App
+                    </h3>
+                  </div>
+                  <div class="project-tech-tags">
+                    <span class="tech-tag tag-html">HTML</span>
+                    <span class="tech-tag tag-css">CSS</span>
+                    <span class="tech-tag tag-js">JavaScript</span>
+                  </div>
+                  <p class="project-card-desc">A simple calculator web app &mdash; the start of the journey.</p>
+                </div>
+                <div class="project-card glass scroll-fade-card">
+                  <div class="project-card-header">
+                    <h3 class="project-card-title">
+                      <span class="dot-indicator dot-gray"></span>
+                      Number Guessing Game
+                    </h3>
+                  </div>
+                  <div class="project-tech-tags">
+                    <span class="tech-tag tag-python">Python</span>
+                  </div>
+                  <p class="project-card-desc">A basic number guessing game built while learning Python fundamentals.</p>
+                </div>
+                <div class="project-card glass scroll-fade-card">
+                  <div class="project-card-header">
+                    <h3 class="project-card-title">
+                      <span class="dot-indicator dot-gray"></span>
+                      Student Grade Tracker
+                    </h3>
+                  </div>
+                  <div class="project-tech-tags">
+                    <span class="tech-tag tag-html">HTML</span>
+                    <span class="tech-tag tag-css">CSS</span>
+                    <span class="tech-tag tag-js">JavaScript</span>
+                  </div>
+                  <p class="project-card-desc">A simple grade tracking web app for academic purposes.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section id="education" class="education-section section-bg-1">
+        <div class="container">
+          <div class="section-header-centered scroll-fade-section">
+            <span class="monospace section-label">// EDUCATION</span>
+            <h2 class="section-title">Academic Background</h2>
+            <div class="title-underline"></div>
+          </div>
+
+          <div class="timeline-v2 edu-timeline">
+
+            <!-- Systems Plus Computer College -->
+            <div class="tl-group scroll-fade-timeline">
+              <div class="tl-year monospace"></div>
+              <div class="tl-dot-wrapper">
+                <span class="tl-dot"></span>
+              </div>
+              <div class="tl-right">
+                <div class="project-card glass scroll-fade-card">
+                  <h3 class="project-card-title" style="margin-bottom:4px;">Systems Plus Computer College</h3>
+                  <p class="edu-degree">Bachelor of Science in Information Technology</p>
+                  <div class="edu-meta monospace">
+                    <span>2022 &ndash; 2026</span>
+                    <span class="edu-sep">&bull;</span>
+                    <span>Caloocan City</span>
+                  </div>
+                  <p class="project-card-desc" style="margin-top:12px;"><strong>Relevant Coursework:</strong> Web Development, Database Management, Data Visualization, Mobile Application Development</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Arellano University -->
+            <div class="tl-group scroll-fade-timeline">
+              <div class="tl-year monospace"></div>
+              <div class="tl-dot-wrapper">
+                <span class="tl-dot"></span>
+              </div>
+              <div class="tl-right">
+                <div class="project-card glass scroll-fade-card">
+                  <h3 class="project-card-title" style="margin-bottom:4px;">Arellano University &mdash; Elisa Esguerra Campus</h3>
+                  <p class="edu-degree">Science, Technology, Engineering and Mathematics (STEM)</p>
+                  <div class="edu-meta monospace">
+                    <span>2020 &ndash; 2022</span>
+                    <span class="edu-sep">&bull;</span>
+                    <span>Malabon City</span>
+                  </div>
+                  <span class="honors-badge">Graduated with Highest Honors</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Certifications -->
+          <div class="certifications-area">
+            <h3 class="monospace section-label" style="text-align:center; margin-bottom:2rem;">// CERTIFICATIONS</h3>
+            <div class="cert-grid">
+              <div class="project-card glass scroll-fade-card">
+                <h4 class="project-card-title" style="font-size:1rem;">Advanced Microsoft Excel</h4>
+                <p class="project-card-desc">Unlocking Powerful Features and Functions</p>
+                <span class="edu-meta monospace">March 2025</span>
+              </div>
+              <div class="project-card glass scroll-fade-card">
+                <h4 class="project-card-title" style="font-size:1rem;">Power BI Fundamentals</h4>
+                <p class="project-card-desc">Unlocking Data-Driven Insights</p>
+                <span class="edu-meta monospace">April 2025</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- GitHub Activity Section -->
+      <section class="github-section section-bg-2 scroll-fade">
+        <div class="container">
+          <div class="section-header-centered">
+            <span class="monospace section-label">// GITHUB_ACTIVITY</span>
+            <h2 class="section-title">My GitHub Contributions</h2>
+            <div class="title-underline"></div>
+          </div>
+          
+          <div class="github-stats-wrapper glass">
+            <div class="github-stats-grid">
+              <!-- Left Chart -->
+              <div class="github-stat-img-card">
+                <img src="https://github-readme-stats.vercel.app/api?username=PinkyBun&show_icons=true&theme=tokyonight" alt="Jasmine Nalda's GitHub Readme Stats" class="github-embed-img">
+              </div>
+              <!-- Right Chart -->
+              <div class="github-stat-img-card">
+                <img src="https://github-readme-streak-stats.herokuapp.com/?user=PinkyBun&theme=tokyonight" alt="Jasmine Nalda's GitHub Streak Stats" class="github-embed-img">
+              </div>
+            </div>
+            
+            <div class="github-action-row">
+              <a href="https://github.com/PinkyBun" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                View GitHub Profile &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact-section section-bg-1 scroll-fade-section">
+        <div class="container">
+          <div class="section-header-centered">
+            <span class="monospace section-label">// CONTACT</span>
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="title-underline"></div>
+          </div>
+
+          <div class="contact-layout-wrapper">
+            
+            <!-- Left: Contact Details Column -->
+            <div class="contact-info-panel">
+              <div class="contact-item">
+                <span class="contact-icon"><i class="ti ti-mail"></i></span>
+                <a href="mailto:jasminenalda20@gmail.com" class="contact-link">jasminenalda20@gmail.com</a>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon"><i class="ti ti-map-pin"></i></span>
+                <span class="contact-text">Malabon City, Philippines</span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon"><i class="ti ti-brand-github"></i></span>
+                <a href="https://github.com/PinkyBun" target="_blank" rel="noopener noreferrer" class="contact-link">github.com/PinkyBun</a>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon"><i class="ti ti-brand-linkedin"></i></span>
+                <a href="https://linkedin.com/in/jasminenalda" target="_blank" rel="noopener noreferrer" class="contact-link">linkedin.com/in/jasminenalda</a>
+              </div>
+            </div>
+
+            <!-- Right: Interactive Contact Form -->
+            <div class="contact-form-panel">
+              <!-- Formspree Target Endpoint (Replaceable Form ID) -->
+              <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
+                
+                <div class="form-group">
+                  <input type="text" id="form-name" name="name" required placeholder="Name" class="form-input">
+                </div>
+
+                <div class="form-group">
+                  <input type="email" id="form-email" name="email" required placeholder="Email" class="form-input">
+                </div>
+
+                <div class="form-group">
+                  <textarea id="form-message" name="message" required placeholder="Message" rows="5" class="form-textarea"></textarea>
+                </div>
+
+                <button type="submit" id="form-submit" class="form-submit-btn">
+                  Send Message
+                </button>
+
+                <!-- Feedback Dialogs -->
+                <div id="form-success" class="form-status-alert success hidden">
+                  Thank you! Your message has been sent.
+                </div>
+                
+                <div id="form-error" class="form-status-alert error hidden">
+                  Oops! Something went wrong.
+                </div>
+
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-container">
+      <div class="container footer-wrapper">
+        <div class="footer-brand">
+          <span class="footer-logo monospace">&lt;/&gt; JN</span>
+          <p class="footer-tagline">Fresh IT Graduate dedicated to engineering premium software interfaces.</p>
+        </div>
+        
+        <div class="footer-bottom-row">
+          <span class="copyright-text">&copy; 2026 Jasmine A. Nalda. All rights reserved.</span>
+          
+          <div class="footer-socials">
+            <a href="mailto:jasminenalda20@gmail.com" aria-label="Email Jasmine">Email</a>
+            <span class="footer-dot">&middot;</span>
+            <a href="https://github.com/PinkyBun" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">GitHub</a>
+            <span class="footer-dot">&middot;</span>
+            <a href="https://linkedin.com/in/jasminenalda" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">LinkedIn</a>
+          </div>
+          
+          <span class="credits-text">Designed &amp; Built by Jasmine A. Nalda</span>
+        </div>
+      </div>
+
+      <!-- Back to Top Button -->
+      <button id="back-to-top" class="back-to-top-btn" aria-label="Scroll Back to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+      </button>
+    </footer>
+
+  </div>
+
+  <!-- Reusable Interactive Project Modal Overlay (80vw x 85vh) -->
+  <div id="project-modal" class="modal-overlay hidden" aria-modal="true" role="dialog" aria-labelledby="modal-project-title">
+    <div class="modal-card">
+      
+      <!-- Close Button -->
+      <button id="modal-close" class="modal-close-btn" aria-label="Close Project Details">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Carousel Image Slider Frame -->
+      <div class="modal-slider-container">
+        <!-- Slides will be loaded dynamically here -->
+        <div class="modal-slides-wrapper" id="modal-slides-wrapper">
+          <!-- Dyn slider imgs -->
+        </div>
+        
+        <!-- Navigation Controls -->
+        <button id="slider-prev" class="slider-btn prev-btn" aria-label="Previous Slide">&lt;</button>
+        <button id="slider-next" class="slider-btn next-btn" aria-label="Next Slide">&gt;</button>
+        
+        <!-- Indicators Dots Container -->
+        <div class="slider-indicators" id="slider-indicators">
+          <!-- Dyn dots -->
+        </div>
+      </div>
+
+      <!-- Textual Metadata Area -->
+      <div class="modal-body-content">
+        <div class="modal-meta-row">
+          <h2 id="modal-project-title" class="modal-project-title">Project Title</h2>
+          <div id="modal-tech-tags" class="project-tech-tags">
+            <!-- Loaded dyn -->
+          </div>
+        </div>
+        
+        <p id="modal-project-description" class="modal-full-desc">
+          Detailed project description will go here...
+        </p>
+
+        <div class="modal-footer-actions">
+          <a href="#" id="modal-btn-github" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            GitHub &rarr;
+          </a>
+          <a href="#" id="modal-btn-demo" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            Live Demo &rarr;
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Core JavaScript Interactivity -->
+  <script src="js/main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <style>
+      .bg { fill: #0d0a1a; }
+      .letter-j { font-family: 'Poppins', 'Segoe UI', sans-serif; font-weight: 800; fill: #a78bfa; font-size: 17px; }
+      .letter-n { font-family: 'Poppins', 'Segoe UI', sans-serif; font-weight: 800; fill: #85b7eb; font-size: 17px; }
+    </style>
+  </defs>
+  <rect width="32" height="32" rx="8" class="bg"/>
+  <text x="4" y="22" class="letter-j">J</text>
+  <text x="15" y="22" class="letter-n">N</text>
+</svg>
