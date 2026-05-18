@@ -1049,7 +1049,7 @@ section {
 
 .tl-group {
   display: grid;
-  grid-template-columns: 120px 16px 1fr;
+  grid-template-columns: 180px 16px 1fr;
   gap: 2rem;
   position: relative;
   padding-bottom: 3.5rem;

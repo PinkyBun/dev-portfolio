@@ -564,6 +564,7 @@ document.addEventListener('DOMContentLoaded', () => {
       items.forEach((item, index) => {
         item.classList.add('scroll-fade-card'); // ensure they fade in
         item.style.transitionDelay = (index * 100) + 'ms';
+        revealObserver.observe(item); // Fix: Explicitly observe them so they trigger reveal-active!
       });
     });
 
