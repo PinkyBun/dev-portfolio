@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jasmine A. Nalda - Project Details">
+  <title>Project Details | Jasmine A. Nalda</title>
+
+  <link rel="icon" type="image/svg+xml" href="images/icons/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="project-page-body">
+
+  <div id="app-container" class="app-visible">
+
+    <!-- Navbar -->
+    <header class="navbar-container scrolled" id="navbar">
+      <div class="navbar-wrapper container">
+        <a href="index.html#hero" class="logo" aria-label="Jasmine Nalda Logo">
+          <span>&lt;/&gt;</span> JN
+        </a>
+
+        <nav class="nav-menu" id="nav-menu">
+          <ul class="nav-list">
+            <li><a href="index.html#about" class="nav-link">About</a></li>
+            <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+            <li><a href="index.html#projects" class="nav-link active">Projects</a></li>
+            <li><a href="index.html#education" class="nav-link">Education</a></li>
+            <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="navbar-actions">
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Light/Dark Theme">
+            <svg id="theme-icon-dark" class="theme-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <svg id="theme-icon-light" class="theme-icon hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+          <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="nav-menu"
+            aria-label="Toggle navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="project-detail-main">
+      <section class="project-detail-section section-bg-1">
+        <div class="container">
+
+          <!-- 1. Top breadcrumb navigation -->
+          <div class="project-breadcrumb-row scroll-fade-card reveal-active">
+            <div class="breadcrumb-left">
+              <a href="index.html" class="breadcrumb-link">Home</a>
+              <span class="breadcrumb-sep">&gt;</span>
+              <a href="index.html#projects" class="breadcrumb-link">Work</a>
+              <span class="breadcrumb-sep">&gt;</span>
+              <span class="breadcrumb-current" id="page-breadcrumb-title">Project Name</span>
+            </div>
+            <div class="breadcrumb-right">
+              <a href="index.html#projects" class="breadcrumb-back-link">&larr; Back to Work</a>
+            </div>
+          </div>
+
+          <!-- 2. Page title -->
+          <h1 class="project-page-title scroll-fade-card reveal-active" id="page-main-title">PROJECT TITLE</h1>
+
+          <hr class="project-divider scroll-fade-card reveal-active">
+          <!-- 3. Meta info row -->
+          <div class="project-meta-row scroll-fade-card reveal-active">
+            <div class="meta-col">
+              <span class="meta-label">CATEGORY</span>
+              <span class="meta-value" id="page-meta-category">Mobile App</span>
+            </div>
+            <div class="meta-col">
+              <span class="meta-label">TOOLS USED</span>
+              <div class="meta-value tools-pill-container" id="page-meta-tools"></div>
+            </div>
+            <div class="meta-col">
+              <span class="meta-label">YEAR</span>
+              <span class="meta-value" id="page-meta-year">2026</span>
+            </div>
+          </div>
+          <hr class="project-divider scroll-fade-card reveal-active">
+
+          <!-- 4. Image/screenshot area -->
+          <div class="project-gallery-area scroll-fade-card reveal-active">
+            <div class="project-slider-container">
+              <div class="project-slides-wrapper" id="page-slider-wrapper">
+                <!-- Dynamic Images -->
+              </div>
+              <button id="page-slider-prev" class="slider-nav-btn prev-btn">&lt;</button>
+              <button id="page-slider-next" class="slider-nav-btn next-btn">&gt;</button>
+              <div class="project-slider-indicators" id="page-slider-indicators">
+                <!-- Dynamic Dots -->
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Below the image, a two-column layout -->
+          <div class="project-content-grid">
+            <!-- Left column -->
+            <div class="project-content-left scroll-fade-card reveal-active">
+              <div class="content-section">
+                <h3 class="content-heading">PROJECT OVERVIEW</h3>
+                <div class="heading-underline"></div>
+                <p class="content-paragraph" id="page-desc-overview">Overview text here...</p>
+              </div>
+
+              <div class="content-section">
+                <h3 class="content-heading">THE CHALLENGE</h3>
+                <div class="heading-underline"></div>
+                <p class="content-paragraph" id="page-desc-challenge">Challenge text here...</p>
+              </div>
+
+              <div class="content-section">
+                <h3 class="content-heading">MY APPROACH</h3>
+                <div class="heading-underline"></div>
+                <p class="content-paragraph" id="page-desc-approach">Approach text here...</p>
+              </div>
+
+              <div class="content-section">
+                <h3 class="content-heading">RESULTS</h3>
+                <div class="heading-underline"></div>
+                <p class="content-paragraph" id="page-desc-results">Results text here...</p>
+              </div>
+            </div>
+
+            <!-- Right column (sidebar) -->
+            <div class="project-content-right scroll-fade-card reveal-active">
+              <div class="project-sidebar-card glass">
+                <div class="sidebar-field">
+                  <span class="sidebar-label">PROJECT TYPE</span>
+                  <span class="sidebar-value" id="page-side-type">Type</span>
+                </div>
+                <div class="sidebar-field">
+                  <span class="sidebar-label">TOOLS USED</span>
+                  <div class="sidebar-value tools-pill-container" id="page-side-tools"></div>
+                </div>
+                <div class="sidebar-field">
+                  <span class="sidebar-label">CATEGORY</span>
+                  <span class="sidebar-value" id="page-side-category">Category</span>
+                </div>
+                <div class="sidebar-field">
+                  <span class="sidebar-label">DURATION</span>
+                  <span class="sidebar-value" id="page-side-duration">Duration</span>
+                </div>
+                <div class="sidebar-field">
+                  <span class="sidebar-label">STATUS</span>
+                  <div class="sidebar-value status-indicator-container" id="page-side-status"></div>
+                </div>
+
+                <div class="sidebar-action-buttons">
+                  <a href="#" id="page-github-btn" target="_blank" rel="noopener noreferrer" class="btn btn-red-solid">
+                    View on GitHub &rarr;
+                  </a>
+                  <a href="#" id="page-demo-btn" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary">
+                    Live Demo &rarr;
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Bottom section -->
+          <hr class="project-divider scroll-fade-card reveal-active">
+          <div class="project-next-section scroll-fade-card reveal-active">
+            <div class="next-left">
+              <span class="next-label">NEXT PROJECT</span>
+              <a href="#" id="page-next-link" class="next-title-link">Next Project Title</a>
+            </div>
+            <div class="next-right">
+              <a href="#" id="page-next-btn" class="next-btn-link">View Project &rarr;</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-container">
+      <div class="container footer-wrapper">
+        <div class="footer-brand">
+          <span class="footer-logo monospace">&lt;/&gt; JN</span>
+          <p class="footer-tagline">Fresh IT Graduate dedicated to engineering premium software interfaces.</p>
+        </div>
+
+        <div class="footer-bottom-row">
+          <span class="copyright-text">&copy; 2026 Jasmine A. Nalda. All rights reserved.</span>
+          <div class="footer-socials">
+            <a href="mailto:jasminenalda20@gmail.com" aria-label="Email Jasmine">Email</a>
+            <span class="footer-dot">&middot;</span>
+            <a href="https://github.com/PinkyBun" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <span class="footer-dot">&middot;</span>
+            <a href="https://linkedin.com/in/jasminenalda" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+          <span class="credits-text">Designed &amp; Built by Jasmine A. Nalda</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

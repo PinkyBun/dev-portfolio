@@ -1,99 +1,10 @@
+// MAIN.JS - Site-Wide Behavior (Nav, Animations, AI Chat)
 /**
  * Jasmine A. Nalda - Developer Portfolio Main Interactivity Engine
  * Pure Vanilla JavaScript (No Frameworks)
  */
 
-document.addEventListener('DOMContentLoaded', () => {
-
-  // ==========================================================================
-  // PROJECT DATA REPOSITORY (For Modal Manager)
-  // ==========================================================================
-  const projectData = {
-    moneysense: {
-      title: "MoneySense Mobile (Capstone)",
-      tags: ["Flutter", "Dart", "YOLOv8", "ResNet-18", "ML Kit OCR"],
-      description: "MoneySense is a custom accessibility-focused mobile application engineered to assist visually impaired individuals in identifying Philippine banknotes in real time. Built using Flutter and Dart, the core recognition engine integrates a fine-tuned YOLOv8 object detection model for scanning banknote structures and a secondary ResNet-18 classifier for deep verification. The app incorporates Google ML Kit OCR to read textual values on currency notes and translates these inputs into immediate auditory feedback (speech synthesis) for users. Developed as a Capstone Project to promote financial independence for the blind.",
-      github: "https://github.com/PinkyBun",
-      demo: false,
-      images: [
-        "images/projects/moneysense/moneysense1.jpg",
-        "images/projects/moneysense/moneysense2.jpg",
-        "images/projects/moneysense/moneysense3.jpg"
-      ]
-    },
-    rfid: {
-      title: "Attendance System with RFID",
-      tags: ["Laravel", "PHP", "XAMPP", "RFID Hardware", "SQL"],
-      description: "A secure, web-based attendance tracking and monitoring system designed for academic and corporate settings. Developed with Laravel (PHP) and MySQL, the application bridges software databases with physical RFID scanner modules. When a card is tapped, hardware inputs transmit serial data to the Laravel backend endpoint, which instantly verifies identity status, registers timestamps, updates status feeds, and displays real-time activity dashboards. Includes administrative controls for managing rosters, generating attendance percentages, and exporting dynamic PDF/Excel logs.",
-      github: "https://github.com/PinkyBun",
-      demo: false,
-      images: [
-        "images/projects/rfid/rfid1.jpg",
-        "images/projects/rfid/rfid2.jpg",
-        "images/projects/rfid/rfid3.jpg"
-      ]
-    },
-    ecommerce: {
-      title: "Full-Stack E-Commerce Website",
-      tags: ["Laravel", "PHP", "MySQL", "Bootstrap", "REST API"],
-      description: "A comprehensive, production-ready online retail platform designed to deliver smooth user experiences. The backend utilizes Laravel to secure catalog management, inventory levels, cart states, and user sessions. Features an administrative portal where managers can track incoming orders, modify item pricing, and upload product categories. Front-end modules include product search filtering, reviews integration, interactive shopping carts, and a dummy checkout sequence connecting mock credit cards to database transactional records.",
-      github: "https://github.com/PinkyBun",
-      demo: false,
-      images: [
-        "images/projects/ecommerce/ecommerce1.jpg",
-        "images/projects/ecommerce/ecommerce2.jpg",
-        "images/projects/ecommerce/ecommerce3.jpg"
-      ]
-    },
-    inventory: {
-      title: "Inventory Management System",
-      tags: ["Laravel", "PHP", "SQL", "ChartJS", "XAMPP"],
-      description: "A secure database-driven warehouse administration portal designed to track product logistics. Built with PHP, Laravel, and MySQL, the system logs product categories, supplier chains, and dynamic quantities. Incorporates real-time threshold calculations that trigger visual alerts when product quantities fall below minimum levels. Administrative dashboards feature interactive ChartJS graphs tracking weekly transactions, import volumes, and order summaries, helping business owners make quick, informed supply-chain decisions.",
-      github: "https://github.com/PinkyBun",
-      demo: false,
-      images: [
-        "images/projects/inventory/inventory1.jpg",
-        "images/projects/inventory/inventory2.jpg",
-        "images/projects/inventory/inventory3.jpg"
-      ]
-    },
-    gym: {
-      title: "Gym Membership Monitoring System",
-      tags: ["Laravel", "PHP", "SQL", "XAMPP", "CSS Grid"],
-      description: "An administrative web application customized to optimize fitness club operations. The portal allows gym personnel to register members, manage membership package terms, and track payment schedules. The check-in module enables gym visitors to log entry codes, immediately updating active daily rosters on administrative views. The dashboard provides clean summaries of member numbers, subscription expiries, and monthly earnings, replacing manual spreadsheets with a central, automated database.",
-      github: "https://github.com/PinkyBun",
-      demo: false,
-      images: [
-        "images/projects/gym/gym1.jpg",
-        "images/projects/gym/gym2.jpg",
-        "images/projects/gym/gym3.jpg"
-      ]
-    },
-    datavis: {
-      title: "Data Visualization Dashboards",
-      tags: ["Power BI", "Excel", "Data Modeling", "ETL Pipelines"],
-      description: "A collection of interactive analytics dashboards transforming raw transactional spreadsheets into clear, actionable business intelligence models. Processes include extensive ETL data-cleaning routines built in Excel Power Query, removing duplicate entries, normalizing fields, and parsing datasets. Renders critical KPIs, sales progressions, regional markets breakdown, and customer acquisition costs in Power BI, enabling executives to drill down into datasets and make quick, data-driven decisions.",
-      github: false,
-      demo: false,
-      images: [
-        "images/projects/datavis/datavis1.jpg",
-        "images/projects/datavis/datavis2.jpg",
-        "images/projects/datavis/datavis3.jpg"
-      ]
-    },
-    ui: {
-      title: "Prototyping & UI/UX Design Projects",
-      tags: ["Figma", "Canva", "Wireframing", "Responsive Layouts"],
-      description: "A showcase of high-fidelity visual UI layouts, interactive mockups, and mobile prototypes built using Figma and Canva. Focuses on wireframing, creating accessible and logical user flows, and maintaining consistent design languages across screens. Features interactive transitions, custom SVGs, typography guidelines, and responsive layouts designed specifically for diverse mobile and desktop screen sizes, emphasizing strict WCAG color-contrast accessibility compliance.",
-      github: false,
-      demo: false,
-      images: [
-        "images/projects/ui/ui1.jpg",
-        "images/projects/ui/ui2.jpg",
-        "images/projects/ui/ui3.jpg"
-      ]
-    }
-  };
+document.addEventListener("DOMContentLoaded", () => {
 
   // ==========================================================================
   // PHASE 1: MONOSPACE TERMINAL INTRO SIMULATOR
@@ -188,12 +99,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Smoothly fade out terminal, slide up, and render main website
   function finishIntro() {
-    terminalIntro.classList.add('fade-out');
-    appContainer.classList.remove('app-hidden');
+    sessionStorage.setItem('introPlayed', 'true');
+    if (terminalIntro) terminalIntro.classList.add('fade-out');
+    if (appContainer) appContainer.classList.remove('app-hidden');
     
     // Tiny delay to allow display reset
     setTimeout(() => {
-      appContainer.classList.add('app-visible');
+      if (appContainer) appContainer.classList.add('app-visible');
       // Initialize hero animations and observers once visible
       initHeroTyping();
       initHeroParticles();
@@ -203,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Fully remove terminal from DOM after transition finishes
     setTimeout(() => {
-      terminalIntro.remove();
+      if (terminalIntro) terminalIntro.remove();
     }, 600);
   }
 
@@ -212,8 +124,24 @@ document.addEventListener('DOMContentLoaded', () => {
     skipIntroBtn.addEventListener('click', skipIntro);
   }
 
-  // Page load delay: Entire page fades in, navbar slides down, then terminal starts
-  setTimeout(typeLine, 1000);
+  // Check if intro was already played in this session
+  if (sessionStorage.getItem('introPlayed') === 'true') {
+    isIntroSkipped = true;
+    if (terminalIntro) terminalIntro.remove();
+    if (appContainer) {
+      appContainer.classList.remove('app-hidden');
+      setTimeout(() => {
+        appContainer.classList.add('app-visible');
+        initHeroTyping();
+        initHeroParticles();
+        initScrollFadeReveal();
+        initTimelineDrawing();
+      }, 50);
+    }
+  } else {
+    // Page load delay: Entire page fades in, navbar slides down, then terminal starts
+    setTimeout(typeLine, 1000);
+  }
 
 
   // ==========================================================================
@@ -550,8 +478,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Stagger certification cards dynamically (100ms per card inside grid)
-    document.querySelectorAll('.cert-grid').forEach(grid => {
+    // Stagger certification and project cards dynamically (100ms per card inside grid)
+    document.querySelectorAll('.cert-grid, .projects-grid').forEach(grid => {
       const cards = grid.querySelectorAll('.scroll-fade-card');
       cards.forEach((card, index) => {
         card.style.transitionDelay = (index * 100) + 'ms';
@@ -580,191 +508,85 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+
+
   // ==========================================================================
-  // INTERACTIVE PROJECT DETAILS MODAL & TOUCH CAROUSEL SLIDER
+  // AI CHAT ASSISTANT WIDGET - CORE LOGIC
   // ==========================================================================
-  const modal = document.getElementById('project-modal');
-  const modalClose = document.getElementById('modal-close');
-  const slidesWrapper = document.getElementById('modal-slides-wrapper');
-  const prevBtn = document.getElementById('slider-prev');
-  const nextBtn = document.getElementById('slider-next');
-  const dotsContainer = document.getElementById('slider-indicators');
-  
-  const mTitle = document.getElementById('modal-project-title');
-  const mTags = document.getElementById('modal-tech-tags');
-  const mDesc = document.getElementById('modal-project-description');
-  const mBtnGithub = document.getElementById('modal-btn-github');
-  const mBtnDemo = document.getElementById('modal-btn-demo');
+  const chatFab = document.getElementById('ai-chat-fab');
+  const chatWindow = document.getElementById('ai-chat-window');
+  const chatCloseBtn = document.getElementById('ai-chat-close');
+  const chatMessages = document.getElementById('ai-chat-messages');
+  const chatForm = document.getElementById('ai-chat-form');
+  const chatInput = document.getElementById('ai-chat-input');
 
-  let currentSlideIndex = 0;
-  let totalSlidesCount = 0;
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  // Bind project cards
-  window.openProjectModal = function(projectId) {
-    const data = projectData[projectId];
-    if (!data) return;
-
-    // Reset carousel indexes
-    currentSlideIndex = 0;
-    totalSlidesCount = data.images.length;
-
-    // Load Text Content
-    mTitle.innerText = data.title;
-    mDesc.innerText = data.description;
-
-    // Load Tech Tags
-    mTags.innerHTML = '';
-    data.tags.forEach(tag => {
-      const tagSpan = document.createElement('span');
-      tagSpan.className = 'tech-tag';
-      tagSpan.innerText = tag;
-      mTags.appendChild(tagSpan);
-    });
-
-    // Configure External CTA Buttons
-    if (data.github) {
-      mBtnGithub.href = data.github;
-      mBtnGithub.classList.remove('disabled');
-      mBtnGithub.style.display = 'inline-flex';
-    } else {
-      mBtnGithub.classList.add('disabled');
-      mBtnGithub.style.display = 'none';
+  if (chatFab && chatWindow && chatForm) {
+    function toggleChat() {
+      chatWindow.classList.toggle('chat-active');
+      if (chatWindow.classList.contains('chat-active')) {
+        setTimeout(() => chatInput.focus(), 100);
+        scrollToBottom();
+      }
     }
 
-    if (data.demo) {
-      mBtnDemo.href = data.demo;
-      mBtnDemo.classList.remove('disabled');
-      mBtnDemo.style.display = 'inline-flex';
-    } else {
-      mBtnDemo.classList.add('disabled');
-      mBtnDemo.style.display = 'none';
+    chatFab.addEventListener('click', toggleChat);
+    chatCloseBtn.addEventListener('click', toggleChat);
+
+    function scrollToBottom() {
+      chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-    // Load Carousel Images
-    slidesWrapper.innerHTML = '';
-    data.images.forEach(imgSrc => {
-      const img = document.createElement('img');
-      img.src = imgSrc;
-      img.alt = `${data.title} Interface View`;
-      img.className = 'slide-img';
+    function appendMessage(sender, text) {
+      const messageDiv = document.createElement('div');
+      messageDiv.classList.add('ai-message');
       
-      // Fallback in case actual generated files fail, render CSS styled error panel
-      img.onerror = () => {
-        const errorFallback = document.createElement('div');
-        errorFallback.style.width = '100%';
-        errorFallback.style.height = '100%';
-        errorFallback.style.display = 'flex';
-        errorFallback.style.alignItems = 'center';
-        errorFallback.style.justifyContent = 'center';
-        errorFallback.style.backgroundColor = '#19162c';
-        errorFallback.style.color = '#a78bfa';
-        errorFallback.style.fontFamily = 'var(--font-monospace)';
-        errorFallback.innerText = `[ IMAGE WORKPLACE: ${imgSrc} ]`;
-        img.replaceWith(errorFallback);
-      };
-      
-      slidesWrapper.appendChild(img);
-    });
-
-    // Generate Indicator Dots
-    dotsContainer.innerHTML = '';
-    for (let i = 0; i < totalSlidesCount; i++) {
-      const dot = document.createElement('div');
-      dot.className = `dot ${i === 0 ? 'active' : ''}`;
-      dot.addEventListener('click', () => navigateToSlide(i));
-      dotsContainer.appendChild(dot);
-    }
-
-    // Show modal with accessibility attribute changes
-    modal.classList.remove('hidden');
-    document.body.style.overflow = 'hidden'; // Stop background scroll
-    modal.focus();
-
-    // Render original positions
-    updateSliderPosition();
-  };
-
-  function closeModal() {
-    modal.classList.add('hidden');
-    document.body.style.overflow = ''; // Resume normal scrolling
-  }
-
-  // Slider navigation logic
-  function navigateToSlide(index) {
-    if (index < 0) {
-      currentSlideIndex = totalSlidesCount - 1;
-    } else if (index >= totalSlidesCount) {
-      currentSlideIndex = 0;
-    } else {
-      currentSlideIndex = index;
-    }
-    updateSliderPosition();
-  }
-
-  function updateSliderPosition() {
-    slidesWrapper.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
-    
-    // Highlight indicator dots
-    const dots = dotsContainer.querySelectorAll('.dot');
-    dots.forEach((dot, idx) => {
-      if (idx === currentSlideIndex) {
-        dot.classList.add('active');
+      if (sender === 'user') {
+        messageDiv.classList.add('user-message');
       } else {
-        dot.classList.remove('active');
+        messageDiv.classList.add('assistant-message');
       }
+      
+      messageDiv.innerText = text;
+      chatMessages.appendChild(messageDiv);
+      scrollToBottom();
+    }
+
+    function showTypingIndicator() {
+      const indicatorDiv = document.createElement('div');
+      indicatorDiv.classList.add('ai-typing-indicator');
+      for (let i = 0; i < 3; i++) {
+        const dot = document.createElement('span');
+        dot.classList.add('ai-typing-dot');
+        indicatorDiv.appendChild(dot);
+      }
+      chatMessages.appendChild(indicatorDiv);
+      scrollToBottom();
+      return indicatorDiv;
+    }
+
+    async function fetchAIResponse(userMessage) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve("This is a mocked response to: '" + userMessage + "'. Connect a real LLM API endpoint in js/main.js to make me fully conversational!");
+        }, 1500);
+      });
+    }
+
+    chatForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const text = chatInput.value.trim();
+      if (!text) return;
+
+      appendMessage('user', text);
+      chatInput.value = '';
+
+      const typingIndicator = showTypingIndicator();
+      const responseText = await fetchAIResponse(text);
+
+      typingIndicator.remove();
+      appendMessage('assistant', responseText);
     });
   }
-
-  // Slider Click Hooks
-  if (prevBtn) prevBtn.addEventListener('click', () => navigateToSlide(currentSlideIndex - 1));
-  if (nextBtn) nextBtn.addEventListener('click', () => navigateToSlide(currentSlideIndex + 1));
-
-  // Modal Close Bindings
-  if (modalClose) modalClose.addEventListener('click', closeModal);
-  
-  // Close when clicking outside of modal card
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      closeModal();
-    }
-  });
-
-  // Keyboard accessibility closing and navigation
-  document.addEventListener('keydown', (e) => {
-    if (!modal.classList.contains('hidden')) {
-      if (e.key === 'Escape') {
-        closeModal();
-      } else if (e.key === 'ArrowRight') {
-        navigateToSlide(currentSlideIndex + 1);
-      } else if (e.key === 'ArrowLeft') {
-        navigateToSlide(currentSlideIndex - 1);
-      }
-    }
-  });
-
-  // Swipe support on Mobile Slider
-  slidesWrapper.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  }, { passive: true });
-
-  slidesWrapper.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipeGesture();
-  }, { passive: true });
-
-  function handleSwipeGesture() {
-    const swipeThreshold = 50;
-    if (touchStartX - touchEndX > swipeThreshold) {
-      // Swiped Left -> Next
-      navigateToSlide(currentSlideIndex + 1);
-    } else if (touchEndX - touchStartX > swipeThreshold) {
-      // Swiped Right -> Prev
-      navigateToSlide(currentSlideIndex - 1);
-    }
-  }
-
 
   // ==========================================================================
   // INTERACTIVE FORMSPREE EMAIL SUBMISSIONS FEEDBACK

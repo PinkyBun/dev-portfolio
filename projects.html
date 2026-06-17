@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jasmine A. Nalda - All Projects">
+  <title>All Projects | Jasmine A. Nalda</title>
+
+  <link rel="icon" type="image/svg+xml" href="images/icons/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="project-page-body">
+
+  <div id="app-container" class="app-visible">
+
+    <!-- Navbar -->
+    <header class="navbar-container scrolled" id="navbar">
+      <div class="navbar-wrapper container">
+        <a href="index.html#hero" class="logo" aria-label="Jasmine Nalda Logo">
+          <span>&lt;/&gt;</span> JN
+        </a>
+
+        <nav class="nav-menu" id="nav-menu">
+          <ul class="nav-list">
+            <li><a href="index.html#about" class="nav-link">About</a></li>
+            <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+            <li><a href="index.html#projects" class="nav-link active">Projects</a></li>
+            <li><a href="index.html#education" class="nav-link">Education</a></li>
+            <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="navbar-actions">
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Light/Dark Theme">
+            <svg id="theme-icon-dark" class="theme-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <svg id="theme-icon-light" class="theme-icon hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+          <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="nav-menu"
+            aria-label="Toggle navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="project-detail-main">
+      <section class="project-detail-section section-bg-1">
+        <div class="container">
+
+          <!-- Breadcrumb navigation -->
+          <div class="project-breadcrumb-row scroll-fade-card reveal-active">
+            <div class="breadcrumb-left">
+              <a href="index.html" class="breadcrumb-link">Home</a>
+              <span class="breadcrumb-sep">&gt;</span>
+              <span class="breadcrumb-current">Work</span>
+            </div>
+            <div class="breadcrumb-right">
+              <a href="index.html#projects" class="breadcrumb-back-link">&larr; Back to Homepage</a>
+            </div>
+          </div>
+
+          <!-- Page title -->
+          <h1 class="project-page-title scroll-fade-card reveal-active" style="margin-bottom: 1rem;">ALL PROJECTS</h1>
+
+          <p class="project-card-desc scroll-fade-card reveal-active"
+            style="max-width: 800px; margin-bottom: 3rem; font-size: 1.1rem; opacity: 0.85;">
+            A complete archive of my work, ranging from complex capstone systems and government internships, to simple
+            web applications from the beginning of my coding journey.
+          </p>
+
+          <hr class="project-divider scroll-fade-card reveal-active" style="margin-bottom: 2rem;">
+
+          <!-- Filter Navigation -->
+          <div class="project-filters scroll-fade-card reveal-active">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="capstone">Capstone</button>
+            <button class="filter-btn" data-filter="internship">Internship</button>
+            <button class="filter-btn" data-filter="personal">Personal Projects</button>
+            <button class="filter-btn" data-filter="design">Design</button>
+          </div>
+
+          <!-- Dynamic Grid Container -->
+          <div class="projects-grid" id="all-projects-grid">
+            <!-- Projects dynamically injected by main.js -->
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-container">
+      <div class="container footer-wrapper">
+        <div class="footer-brand">
+          <span class="footer-logo monospace">&lt;/&gt; JN</span>
+          <p class="footer-tagline">Fresh IT Graduate dedicated to engineering premium software interfaces.</p>
+        </div>
+
+        <div class="footer-bottom-row">
+          <span class="copyright-text">&copy; 2026 Jasmine A. Nalda. All rights reserved.</span>
+          <div class="footer-socials">
+            <a href="mailto:jasminenalda20@gmail.com" aria-label="Email Jasmine">Email</a>
+            <span class="footer-dot">&middot;</span>
+            <a href="https://github.com/PinkyBun" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <span class="footer-dot">&middot;</span>
+            <a href="https://linkedin.com/in/jasminenalda" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+          <span class="credits-text">Designed &amp; Built by Jasmine A. Nalda</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Core JavaScript Interactivity -->
+  <script src="js/projects-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
