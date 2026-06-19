@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Home grid always shows top 5 and ignores filters
       const topProjects = projectsData.slice(0, 5);
       let html = topProjects.map(p => generateCardHTML(p, false)).join('');
-      
+
       // Add CTA card
       html += `
         <!-- View All Projects CTA -->
@@ -79,10 +79,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (filter !== 'all') {
         filteredData = projectsData.filter(p => p.filterCategory === filter);
       }
-      
+
       let html = filteredData.map(p => generateCardHTML(p, true)).join('');
       allGrid.innerHTML = html;
-      
+
       // Trigger animations for newly rendered cards
       setTimeout(() => {
         allGrid.querySelectorAll('.scroll-fade-card').forEach((card, index) => {
@@ -139,104 +139,102 @@ document.addEventListener('DOMContentLoaded', () => {
   // PROJECT DATA REPOSITORY (For Modal Manager)
   // ==========================================================================
   const projectData = {
-    moneysense: {
-      title: "MoneySense Mobile (Capstone)",
-      tags: ["Flutter", "Dart", "YOLOv8", "ResNet-18", "ML Kit OCR"],
-      category: "Mobile Application",
-      year: "2026",
-      type: "Capstone Project",
-      duration: "4 Months",
-      status: "Completed",
-      overview: "MoneySense is a custom accessibility-focused mobile application engineered to assist visually impaired individuals in identifying Philippine banknotes in real time.",
-      challenge: "Visually impaired individuals face significant challenges in independently identifying paper currency, leading to vulnerability in daily financial transactions.",
-      approach: "Built using Flutter and Dart, the core recognition engine integrates a fine-tuned YOLOv8 object detection model for scanning banknote structures and a secondary ResNet-18 classifier for deep verification.",
-      results: "The app incorporates Google ML Kit OCR to read textual values on currency notes and translates these inputs into immediate auditory feedback (speech synthesis) for users, promoting financial independence.",
-      github: "https://github.com/PinkyBun",
-      demo: false,
-      images: [
-        "images/projects/moneysense/cover.jpg",
-        "images/projects/moneysense/screenshot-1.jpg",
-        "images/projects/moneysense/screenshot-2.jpg"
-      ]
-    },
     rfid: {
-      title: "Attendance System with RFID",
-      tags: ["Laravel", "PHP", "XAMPP", "RFID Hardware", "SQL"],
+      title: "RFID Attendance Tracking System (ATS)",
+      tags: ["CodeIgniter 4", "PHP", "Tailwind CSS", "DaisyUI", "RFID Hardware"],
       category: "Web & Hardware",
       year: "2025",
       type: "Academic Project",
       duration: "3 Months",
       status: "Completed",
-      overview: "A secure, web-based attendance tracking and monitoring system designed for academic and corporate settings.",
-      challenge: "Manual attendance tracking is prone to errors, time-consuming, and difficult to manage at scale in large institutions.",
-      approach: "Developed with Laravel (PHP) and MySQL, the application bridges software databases with physical RFID scanner modules. When a card is tapped, hardware inputs transmit serial data to the Laravel backend endpoint.",
-      results: "The system instantly verifies identity status, registers timestamps, updates status feeds, and displays real-time activity dashboards. Includes administrative controls for managing rosters, generating attendance percentages, and exporting dynamic PDF/Excel logs.",
-      github: "https://github.com/PinkyBun",
+      overview: "A modern, fast, and reliable web-based attendance tracking solution powered by CodeIgniter 4 and RFID technology.",
+      challenge: "Manual attendance tracking is prone to errors, time-consuming, and difficult to manage at scale in large educational institutions.",
+      approach: "Developed with CodeIgniter 4 and MySQL, the application bridges software databases with physical RFID scanner modules. It features a live tap view for capturing student RFID taps as they enter the room.",
+      results: "The system instantly verifies identity status, logs attendance records, and displays real-time activity dashboards. It includes controls for managing students, generating attendance percentages, and exporting dynamic PDF/Excel logs.",
+      github: "https://github.com/PinkyBun/RFID-Attendance-Tracking-System-ATS",
       demo: false,
       images: [
         "images/projects/rfid/cover.jpg",
         "images/projects/rfid/screenshot-1.jpg",
-        "images/projects/rfid/screenshot-2.jpg"
+        "images/projects/rfid/screenshot-2.jpg",
+        "images/projects/rfid/screenshot-3.jpg",
+        "images/projects/rfid/screenshot-4.jpg",
+        "images/projects/rfid/screenshot-5.jpg",
+        "images/projects/rfid/screenshot-6.jpg"
       ]
     },
     ecommerce: {
-      title: "Full-Stack E-Commerce Website",
-      tags: ["Laravel", "PHP", "MySQL", "Bootstrap", "REST API"],
+      title: "E-Commerce Platform (BROWSE AND BUY)",
+      tags: ["Laravel 8", "PHP", "MySQL", "Bootstrap 5", "PayPal API"],
       category: "Web Platform",
       year: "2023",
       type: "Academic Project",
       duration: "2 Months",
       status: "Completed",
-      overview: "A comprehensive, production-ready online retail platform designed to deliver smooth user experiences.",
+      overview: "A full-featured, responsive e-commerce web application with a robust admin dashboard.",
       challenge: "Building a secure and scalable e-commerce platform from scratch requires careful handling of user sessions, product inventory, and transactional state.",
-      approach: "The backend utilizes Laravel to secure catalog management, inventory levels, cart states, and user sessions. Features an administrative portal where managers can track incoming orders, modify item pricing, and upload product categories.",
-      results: "Front-end modules include product search filtering, reviews integration, interactive shopping carts, and a dummy checkout sequence connecting mock credit cards to database transactional records.",
-      github: "https://github.com/PinkyBun",
+      approach: "The platform provides dual user roles, secure authentication, product catalog, and an administrative backend. Includes integration with PayPal for payments and live support through tawk.to and WhatsApp.",
+      results: "Customers can browse products, manage shopping carts, apply discount coupons, leave ratings and reviews, and checkout securely. Administrators can manage inventory, coupons, and orders.",
+      github: "https://github.com/PinkyBun/E-Commerce-Platform-BROWSE-AND-BUY",
       demo: false,
       images: [
         "images/projects/ecommerce/cover.jpg",
-        "images/projects/ecommerce/screenshot-1.jpg",
-        "images/projects/ecommerce/screenshot-2.jpg"
+        "images/projects/ecommerce/screenshot-1.png",
+        "images/projects/ecommerce/screenshot-2.png",
+        "images/projects/ecommerce/screenshot-3.png",
+        "images/projects/ecommerce/screenshot-4.png",
+        "images/projects/ecommerce/screenshot-5.png",
+        "images/projects/ecommerce/screenshot-6.png",
+        "images/projects/ecommerce/screenshot-7.png",
+        "images/projects/ecommerce/screenshot-8.png",
+        "images/projects/ecommerce/screenshot-9.png",
       ]
     },
     inventory: {
-      title: "Inventory Management System",
-      tags: ["Laravel", "PHP", "SQL", "ChartJS", "XAMPP"],
+      title: "Inventory Management with Billing System",
+      tags: ["Laravel 10", "PHP", "MySQL", "Livewire", "Tailwind CSS"],
       category: "Web Application",
       year: "2024",
       type: "Academic Project",
       duration: "2 Months",
       status: "Completed",
-      overview: "A secure database-driven warehouse administration portal designed to track product logistics.",
+      overview: "A robust web application for managing products, point of sales (POS), orders, purchases, and quotations.",
       challenge: "Small businesses often struggle with manual inventory tracking, leading to stockouts or overstock situations due to lack of real-time data.",
-      approach: "Built with PHP, Laravel, and MySQL, the system logs product categories, supplier chains, and dynamic quantities. Incorporates real-time threshold calculations that trigger visual alerts when product quantities fall below minimum levels.",
-      results: "Administrative dashboards feature interactive ChartJS graphs tracking weekly transactions, import volumes, and order summaries, helping business owners make quick, informed supply-chain decisions.",
-      github: "https://github.com/PinkyBun",
+      approach: "Built with PHP, Laravel 10, Livewire, and MySQL, the system provides an intuitive POS interface alongside comprehensive tools for managing products, suppliers, customers, and quotations in one centralized platform.",
+      results: "Features include interactive dashboard analytics tracking fast-moving items, total sales, and stock levels. It streamlines the tracking of inventory, orders, and sales for small to medium-sized businesses.",
+      github: "https://github.com/PinkyBun/Inventory-Management-with-Billing-System",
       demo: false,
       images: [
         "images/projects/inventory/cover.jpg",
-        "images/projects/inventory/screenshot-1.jpg",
-        "images/projects/inventory/screenshot-2.jpg"
+        "images/projects/inventory/screenshot-1.png",
+        "images/projects/inventory/screenshot-2.png",
+        "images/projects/inventory/screenshot-3.png",
+        "images/projects/inventory/screenshot-4.png",
+        "images/projects/inventory/screenshot-5.png",
+        "images/projects/inventory/screenshot-6.png",
+        "images/projects/inventory/screenshot-7.png",
       ]
     },
     gym: {
-      title: "Gym Membership Monitoring System",
-      tags: ["Laravel", "PHP", "SQL", "XAMPP", "CSS Grid"],
+      title: "Gym Attendance Management and Monitoring System",
+      tags: ["Laravel 8", "PHP", "MySQL", "DataTables"],
       category: "Web Application",
       year: "2023",
       type: "Academic Project",
       duration: "2 Months",
       status: "Completed",
-      overview: "An administrative web application customized to optimize fitness club operations.",
+      overview: "A comprehensive web application designed to streamline member registration, subscription tracking, and attendance monitoring.",
       challenge: "Managing member subscriptions, payments, and facility access manually using spreadsheets leads to inefficiencies and lost revenue.",
-      approach: "The portal allows gym personnel to register members, manage membership package terms, and track payment schedules. The check-in module enables gym visitors to log entry codes, immediately updating active daily rosters on administrative views.",
-      results: "The dashboard provides clean summaries of member numbers, subscription expiries, and monthly earnings, replacing manual spreadsheets with a central, automated database.",
-      github: "https://github.com/PinkyBun",
+      approach: "Built specifically for gym administrators, it provides full CRUD capabilities for managing gym members and automatically categorizes them based on subscription status.",
+      results: "Features a modern admin dashboard with interactive DataTables for advanced reporting, attendance logs, and a discount system for eligible members.",
+      github: "https://github.com/PinkyBun/Gym-Attendance-Management-and-Monitoring-System",
       demo: false,
       images: [
         "images/projects/gym/cover.jpg",
-        "images/projects/gym/screenshot-1.jpg",
-        "images/projects/gym/screenshot-2.jpg"
+        "images/projects/gym/screenshot-1.png",
+        "images/projects/gym/screenshot-2.png",
+        "images/projects/gym/screenshot-3.png",
+        "images/projects/gym/screenshot-4.png",
       ]
     },
     datavis: {
@@ -247,10 +245,10 @@ document.addEventListener('DOMContentLoaded', () => {
       type: "Data Project",
       duration: "1 Month",
       status: "Completed",
-      overview: "A collection of interactive analytics dashboards transforming raw transactional spreadsheets into clear, actionable business intelligence models.",
-      challenge: "Raw data is difficult to interpret for decision-makers, making it hard to identify trends, KPIs, and operational inefficiencies.",
-      approach: "Processes include extensive ETL data-cleaning routines built in Excel Power Query, removing duplicate entries, normalizing fields, and parsing datasets.",
-      results: "Renders critical KPIs, sales progressions, regional markets breakdown, and customer acquisition costs in Power BI, enabling executives to drill down into datasets and make quick, data-driven decisions.",
+      overview: "A collection of interactive Power BI dashboards built to turn raw, disconnected datasets into clear business intelligence. The collection spans different domains — from biological data exploration to industrial equipment monitoring — showing the ability to adapt one core skill set (data modeling, visualization, and storytelling) across very different types of data and audiences.",
+      challenge: "Raw data on its own rarely tells a useful story. Numbers scattered across spreadsheets make it hard to compare categories side by side, track performance over time, or catch warning signs before they become costly problems. Decision-makers need a way to see patterns, rankings, and outliers immediately, without digging through rows of data themselves.",
+      approach: "Each dashboard started with understanding what question the data needed to answer, then structuring the data model around that question before any visuals were built. From there, I designed multi-page reports using KPI cards for at - a - glance numbers, ranked bar charts to highlight top and bottom performers, trend and combo charts to show change over time, and interactive filters so users can explore the data on their own terms. A consistent color system and layout were used throughout so every report feels like part of one connected product, not separate one- off charts.",
+      results: "The result is a set of dashboards that let users filter, compare, and drill into data in seconds instead of minutes. Patterns that would be invisible in a spreadsheet — like which equipment costs the most to maintain, which assets are nearing critical health, or how categories naturally cluster — become visible at a glance. This turns raw data into a tool decision-makers can actually use day to day, not just a report they read once and set aside.",
       github: false,
       demo: false,
       images: [
@@ -263,14 +261,14 @@ document.addEventListener('DOMContentLoaded', () => {
       title: "Prototyping & UI/UX Design Projects",
       tags: ["Figma", "Canva", "Wireframing", "Responsive Layouts"],
       category: "Design",
-      year: "2024",
+      year: "Ongoing",
       type: "Design Project",
       duration: "Ongoing",
       status: "Active",
-      overview: "A showcase of high-fidelity visual UI layouts, interactive mockups, and mobile prototypes built using Figma and Canva.",
-      challenge: "Translating complex functional requirements into intuitive, accessible, and visually appealing user interfaces across various screen sizes.",
-      approach: "Focuses on wireframing, creating accessible and logical user flows, and maintaining consistent design languages across screens. Features interactive transitions, custom SVGs, typography guidelines, and responsive layouts.",
-      results: "Deliverables include designs specifically tailored for diverse mobile and desktop screen sizes, emphasizing strict WCAG color-contrast accessibility compliance.",
+      overview: "Information coming soon.",
+      challenge: "Information coming soon.",
+      approach: "Information coming soon.",
+      results: "Information coming soon.",
       github: false,
       demo: false,
       images: [
@@ -330,7 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
           } else if (lowerTag.includes('api')) {
             iconClass = 'ti ti-api';
           }
-          
+
           pill.innerHTML = `<i class="${iconClass}"></i> ${tag}`;
           container.appendChild(pill);
         });
@@ -362,18 +360,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const sideStatus = document.getElementById('page-side-status');
       const githubBtn = document.getElementById('page-github-btn');
       const demoBtn = document.getElementById('page-demo-btn');
-      
+
       if (sideType) sideType.innerText = data.type;
       if (sideTools) renderTools(data.tags, sideTools);
       if (sideCategory) sideCategory.innerText = data.category;
       if (sideDuration) sideDuration.innerText = data.duration;
-      
+
       if (sideStatus) {
         const lowerStatus = data.status.toLowerCase();
         let statusClass = 'status-planned';
         if (lowerStatus.includes('complet')) statusClass = 'status-completed';
         else if (lowerStatus.includes('progress') || lowerStatus.includes('active')) statusClass = 'status-active';
-        
+
         sideStatus.innerHTML = `<div class="status-indicator-container ${statusClass}">
           <span class="status-dot"></span>
           <span>${data.status}</span>
@@ -409,7 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const prevBtn = document.getElementById('page-slider-prev');
       const nextBtn = document.getElementById('page-slider-next');
       const dotsContainer = document.getElementById('page-slider-indicators');
-      
+
       let currentSlideIndex = 0;
       let totalSlidesCount = data.images.length;
 
@@ -474,7 +472,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (prevBtn) prevBtn.addEventListener('click', () => navigateToSlide(currentSlideIndex - 1));
         if (nextBtn) nextBtn.addEventListener('click', () => navigateToSlide(currentSlideIndex + 1));
       }
-      
+
       // Next Project Logic
       const keys = Object.keys(projectData);
       const currentIndex = keys.indexOf(projectId);
@@ -482,10 +480,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const nextIndex = (currentIndex + 1) % keys.length;
         const nextId = keys[nextIndex];
         const nextProject = projectData[nextId];
-        
+
         const nextLinkTitle = document.getElementById('page-next-link');
         const nextBtnLink = document.getElementById('page-next-btn');
-        
+
         if (nextLinkTitle) {
           nextLinkTitle.innerText = nextProject.title;
           nextLinkTitle.href = `project.html?id=${nextId}`;

@@ -1,25 +1,5 @@
 const projectsData = [
   {
-    id: "moneysense",
-    title: "MoneySense Mobile",
-    categoryLabel: "&#9733; CAPSTONE",
-    categoryClass: "",
-    filterCategory: "capstone",
-    date: "Jan 2026",
-    colorBorder: "border-purple",
-    colorDot: "dot-purple",
-    tech: [
-      { class: "tag-flutter", name: "Flutter" },
-      { class: "tag-dart", name: "Dart" },
-      { class: "tag-yolo", name: "YOLOv8" },
-      { class: "tag-resnet", name: "ResNet-18" },
-      { class: "tag-ocr", name: "ML Kit OCR" }
-    ],
-    description: "Accessibility-focused mobile app enabling visually impaired users to identify Philippine banknotes using machine learning.",
-    link: "project.html?id=moneysense",
-    image: "images/projects/moneysense/cover.jpg"
-  },
-  {
     id: "mrt3",
     title: "DOTr &mdash; MRT3 Depot Office",
     categoryLabel: "&#128188; INTERNSHIP",
@@ -34,11 +14,11 @@ const projectsData = [
     ],
     description: "Applied IT knowledge in a real-world government environment supporting digital operations and data management.",
     link: "",
-    image: "images/projects/mrt3/cover.jpg"
+    image: "images/projects/mrt3/logo.png"
   },
   {
     id: "rfid",
-    title: "Attendance System with RFID",
+    title: "RFID Attendance Tracking System (ATS)",
     categoryLabel: "&#128187; PERSONAL PROJECT",
     categoryClass: "badge-client",
     filterCategory: "personal",
@@ -46,18 +26,18 @@ const projectsData = [
     colorBorder: "border-blue",
     colorDot: "dot-blue",
     tech: [
-      { class: "tag-laravel", name: "Laravel" },
+      { class: "tag-ci", name: "CodeIgniter 4" },
       { class: "tag-php", name: "PHP" },
-      { class: "tag-xampp", name: "XAMPP" },
+      { class: "tag-tailwind", name: "Tailwind CSS" },
       { class: "tag-rfid", name: "RFID" }
     ],
-    description: "Web-based attendance monitoring system integrated with RFID for automated and accurate record tracking.",
+    description: "A modern, fast, and reliable web-based attendance tracking solution powered by CodeIgniter 4 and RFID technology.",
     link: "project.html?id=rfid",
     image: "images/projects/rfid/cover.jpg"
   },
   {
     id: "inventory",
-    title: "Inventory Management System",
+    title: "Inventory Management with Billing System",
     categoryLabel: "&#128187; PERSONAL PROJECT",
     categoryClass: "badge-client",
     filterCategory: "personal",
@@ -65,12 +45,12 @@ const projectsData = [
     colorBorder: "border-amber",
     colorDot: "dot-amber",
     tech: [
-      { class: "tag-laravel", name: "Laravel" },
+      { class: "tag-laravel", name: "Laravel 10" },
       { class: "tag-php", name: "PHP" },
-      { class: "tag-xampp", name: "XAMPP" },
-      { class: "tag-sql", name: "SQL" }
+      { class: "tag-tailwind", name: "Tailwind CSS" },
+      { class: "tag-mysql", name: "MySQL" }
     ],
-    description: "Database-driven system for real-time stock monitoring and inventory control.",
+    description: "A robust web application for managing products, point of sales (POS), orders, purchases, and quotations.",
     link: "project.html?id=inventory",
     image: "images/projects/inventory/cover.jpg"
   },
@@ -93,24 +73,24 @@ const projectsData = [
   },
   {
     id: "ui",
-    title: "Prototyping &amp; UI Design",
+    title: "Prototyping & UI/UX Design Projects",
     categoryLabel: "&#127912; DESIGN",
     categoryClass: "badge-client",
     filterCategory: "design",
-    date: "2024",
+    date: "Ongoing",
     colorBorder: "border-pink",
     colorDot: "dot-pink",
     tech: [
       { class: "tag-figma", name: "Figma" },
       { class: "tag-canva", name: "Canva" }
     ],
-    description: "UI prototypes, wireframes, and visual materials for web and mobile interfaces.",
+    description: "Information coming soon.",
     link: "project.html?id=ui",
     image: "images/projects/ui/cover.jpg"
   },
   {
     id: "ecommerce",
-    title: "E-Commerce Website",
+    title: "E-Commerce Platform (BROWSE AND BUY)",
     categoryLabel: "&#128187; PERSONAL PROJECT",
     categoryClass: "badge-client",
     filterCategory: "personal",
@@ -118,18 +98,18 @@ const projectsData = [
     colorBorder: "border-green",
     colorDot: "dot-green",
     tech: [
-      { class: "tag-laravel", name: "Laravel" },
+      { class: "tag-laravel", name: "Laravel 8" },
       { class: "tag-php", name: "PHP" },
-      { class: "tag-xampp", name: "XAMPP" },
-      { class: "tag-sql", name: "SQL" }
+      { class: "tag-mysql", name: "MySQL" },
+      { class: "tag-bootstrap", name: "Bootstrap 5" }
     ],
-    description: "Full-stack e-commerce platform with product listing, shopping cart, and order tracking.",
+    description: "A full-featured, responsive e-commerce web application with a robust admin dashboard.",
     link: "project.html?id=ecommerce",
     image: "images/projects/ecommerce/cover.jpg"
   },
   {
     id: "gym",
-    title: "Gym Monitoring System",
+    title: "Gym Attendance Management and Monitoring System",
     categoryLabel: "&#128187; PERSONAL PROJECT",
     categoryClass: "badge-client",
     filterCategory: "personal",
@@ -137,12 +117,12 @@ const projectsData = [
     colorBorder: "border-coral",
     colorDot: "dot-coral",
     tech: [
-      { class: "tag-laravel", name: "Laravel" },
+      { class: "tag-laravel", name: "Laravel 8" },
       { class: "tag-php", name: "PHP" },
-      { class: "tag-xampp", name: "XAMPP" },
-      { class: "tag-sql", name: "SQL" }
+      { class: "tag-mysql", name: "MySQL" },
+      { class: "tag-html", name: "HTML5" }
     ],
-    description: "Web-based system for gym membership and attendance management.",
+    description: "A comprehensive web-based member and attendance tracking system.",
     link: "project.html?id=gym",
     image: "images/projects/gym/cover.jpg"
   },
@@ -163,39 +143,5 @@ const projectsData = [
     description: "A simple calculator web app &mdash; the start of the journey.",
     link: "",
     image: "images/projects/calc/cover.jpg"
-  },
-  {
-    id: "guess",
-    title: "Number Guessing Game",
-    categoryLabel: "&#128187; PERSONAL PROJECT",
-    categoryClass: "badge-client",
-    filterCategory: "personal",
-    date: "The Beginning",
-    colorBorder: "border-gray",
-    colorDot: "dot-gray",
-    tech: [
-      { class: "tag-python", name: "Python" }
-    ],
-    description: "A basic number guessing game built while learning Python fundamentals.",
-    link: "",
-    image: "images/projects/guess/cover.jpg"
-  },
-  {
-    id: "grade",
-    title: "Student Grade Tracker",
-    categoryLabel: "&#128187; PERSONAL PROJECT",
-    categoryClass: "badge-client",
-    filterCategory: "personal",
-    date: "The Beginning",
-    colorBorder: "border-gray",
-    colorDot: "dot-gray",
-    tech: [
-      { class: "tag-html", name: "HTML" },
-      { class: "tag-css", name: "CSS" },
-      { class: "tag-js", name: "JavaScript" }
-    ],
-    description: "A simple grade tracking web app for academic purposes.",
-    link: "",
-    image: "images/projects/grade/cover.jpg"
   }
 ];
