@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { text: "Loading developer profile...", prompt: true, delay: 400 },
     { text: "Hello, World!", prompt: true, delay: 400 },
     { text: "I'm Jasmine A. Nalda", prompt: true, delay: 400 },
-    { text: "Full-Stack Developer", prompt: true, delay: 400 }
+    { text: "Web Developer", prompt: true, delay: 400 }
   ];
 
   let lineIndex = 0;
@@ -48,21 +48,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (lineIndex < introLines.length) {
       const lineData = introLines[lineIndex];
-      
+
       // Start of a new line
       if (charIndex === 0) {
         removeCursor();
         const lineEl = document.createElement('div');
         lineEl.className = 'terminal-line';
         lineEl.id = `line-${lineIndex}`;
-        
+
         if (lineData.prompt) {
           const promptSpan = document.createElement('span');
           promptSpan.className = 'terminal-prompt';
           promptSpan.innerText = 'root@jn-portfolio:~# ';
           lineEl.appendChild(promptSpan);
         }
-        
+
         const textSpan = document.createElement('span');
         textSpan.id = `text-${lineIndex}`;
         lineEl.appendChild(textSpan);
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
         charIndex = 0;
         typingTimeout = setTimeout(typeLine, lineData.delay);
       }
-      
+
       // Auto scroll terminal output
       terminalOutput.scrollTop = terminalOutput.scrollHeight;
     } else {
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
     sessionStorage.setItem('introPlayed', 'true');
     if (terminalIntro) terminalIntro.classList.add('fade-out');
     if (appContainer) appContainer.classList.remove('app-hidden');
-    
+
     // Tiny delay to allow display reset
     setTimeout(() => {
       if (appContainer) appContainer.classList.add('app-visible');
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
       initScrollFadeReveal();
       initTimelineDrawing();
     }, 100);
-    
+
     // Fully remove terminal from DOM after transition finishes
     setTimeout(() => {
       if (terminalIntro) terminalIntro.remove();
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================================================================
   // PHASE 2: HERO CAROUSEL TYPING LOOP
   // ==========================================================================
-  const roles = ["Full-Stack Developer", "Mobile App Developer", "Data Visualization", "UI/UX Designer"];
+  const roles = ["Web Developer", "Mobile App Developer", "Data Visualization", "UI/UX Designer"];
   let roleIndex = 0;
   let roleCharIndex = 0;
   let isDeleting = false;
@@ -155,9 +155,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function initHeroTyping() {
     if (!typingRoleEl) return;
-    
+
     const currentRole = roles[roleIndex];
-    
+
     if (isDeleting) {
       typingRoleEl.innerText = currentRole.substring(0, roleCharIndex - 1);
       roleCharIndex--;
@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function toggleMenu() {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
-    
+
     // Toggle aria expanded status
     const isExpanded = hamburger.classList.contains('active');
     hamburger.setAttribute('aria-expanded', isExpanded);
@@ -257,7 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const themeToggle = document.getElementById('theme-toggle');
   const themeIconDark = document.getElementById('theme-icon-dark');
   const themeIconLight = document.getElementById('theme-icon-light');
-  
+
   // Set default theme state on initial load
   const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
   document.documentElement.setAttribute('data-theme', savedTheme);
@@ -276,7 +276,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
+
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('portfolio-theme', newTheme);
     updateThemeIcons(newTheme);
@@ -291,7 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ACTIVE NAVIGATION LINK OBSERVER ON SCROLL
   // ==========================================================================
   const sections = document.querySelectorAll('section[id]');
-  
+
   function activeNavHighlight() {
     const scrollY = window.pageYOffset;
 
@@ -357,7 +357,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================================================================
   function initTimelineDrawing() {
     const timelines = document.querySelectorAll('.timeline-v2');
-    
+
     timelines.forEach(timeline => {
       // 1. Inject SVG elements if they do not exist
       let svgWrapper = timeline.querySelector('.timeline-svg-wrapper');
@@ -375,11 +375,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const bgPath = svgWrapper.querySelector('.timeline-scroll-path');
       const drawPath = svgWrapper.querySelector('.timeline-scroll-draw');
-      
+
       function updatePaths() {
         const dots = timeline.querySelectorAll('.tl-dot');
         if (dots.length < 2) return;
-        
+
         // Hide elements if window matches mobile viewport
         if (window.innerWidth <= 768) {
           svgWrapper.style.display = 'none';
@@ -388,40 +388,40 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           svgWrapper.style.display = 'block';
         }
-        
+
         const timelineRect = timeline.getBoundingClientRect();
         const firstDotRect = dots[0].getBoundingClientRect();
         const lastDotRect = dots[dots.length - 1].getBoundingClientRect();
-        
+
         // Calculate coordinates relative to the timeline parent container
         const x = (firstDotRect.left + firstDotRect.width / 2) - timelineRect.left;
         const startY = (firstDotRect.top + firstDotRect.height / 2) - timelineRect.top;
         const endY = (lastDotRect.top + lastDotRect.height / 2) - timelineRect.top;
-        
+
         // Generate straight SVG path
         const pathData = `M ${x} ${startY} L ${x} ${endY}`;
         bgPath.setAttribute('d', pathData);
         drawPath.setAttribute('d', pathData);
-        
+
         const pathLength = drawPath.getTotalLength();
         drawPath.style.strokeDasharray = pathLength;
-        
+
         // Dynamic scroll drawing height calculations
         const drawHeight = endY - startY;
         const absoluteLineStart = timelineRect.top + startY + window.scrollY;
-        
+
         // Trigger scroll drawing relative to the screen scroll center
         const scrolled = (window.scrollY + window.innerHeight * 0.6) - absoluteLineStart;
         let percent = scrolled / drawHeight;
         percent = Math.max(0, Math.min(1, percent));
-        
+
         drawPath.style.strokeDashoffset = pathLength - (pathLength * percent);
-        
+
         // Dynamically activate pulsing dots as they enter viewport view bounds
         dots.forEach(dot => {
           const dotRect = dot.getBoundingClientRect();
           const dotCenterViewport = dotRect.top + dotRect.height / 2;
-          
+
           if (dotCenterViewport < window.innerHeight * 0.65) {
             dot.classList.add('active');
           } else {
@@ -429,7 +429,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       }
-      
+
       // Sync draw path updates smoothly using requestAnimationFrame for scroll events
       let ticking = false;
       const onScroll = () => {
@@ -441,10 +441,10 @@ document.addEventListener("DOMContentLoaded", () => {
           ticking = true;
         }
       };
-      
+
       window.addEventListener('scroll', onScroll);
       window.addEventListener('resize', updatePaths);
-      
+
       // Trigger paths initially
       setTimeout(updatePaths, 150);
     });
@@ -457,7 +457,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const revealElements = document.querySelectorAll(
       '.scroll-fade, .scroll-fade-section, .scroll-fade-timeline, .scroll-fade-card'
     );
-    
+
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -526,7 +526,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Reset feedback indicators
       formSuccessAlert.classList.add('hidden');
       formErrorAlert.classList.add('hidden');
-      
+
       // Update submitting button state
       const originalBtnText = formSubmitBtn.innerHTML;
       formSubmitBtn.disabled = true;
