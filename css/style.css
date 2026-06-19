@@ -3124,7 +3124,6 @@ section {
   }
 
   .navbar-wrapper {
-    padding: 0 1.5rem;
     height: 65px;
   }
 
@@ -3202,7 +3201,7 @@ section {
   }
 
   .container {
-    padding: 0 16px;
+    padding: 0 24px;
   }
 
   /* Responsive Grouped Tech Stack */
@@ -3250,6 +3249,17 @@ section {
   }
 
   /* Hamburger navigation */
+  .navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .theme-toggle-btn {
+    display: flex !important;
+    z-index: 1002;
+  }
+
   .hamburger {
     display: flex;
   }
