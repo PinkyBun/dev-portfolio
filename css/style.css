@@ -462,6 +462,8 @@ section {
   display: flex;
   align-items: center;
   gap: 4px;
+  position: relative;
+  z-index: 1002;
 }
 
 .logo span {
@@ -3451,18 +3453,25 @@ section {
 }
 
 .project-detail-main {
-  padding-top: 100px;
+  padding-top: 0;
 }
 
 .project-breadcrumb-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 2rem;
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-secondary);
+  gap: 1rem;
+  line-height: 1.6;
 }
+
+.breadcrumb-right {
+  flex-shrink: 0;
+}
+
 
 .breadcrumb-link {
   color: var(--text-secondary);
