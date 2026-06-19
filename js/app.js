@@ -418,6 +418,16 @@ document.addEventListener('DOMContentLoaded', () => {
           img.src = imgSrc;
           img.alt = `${data.title} View`;
           img.className = 'slide-img';
+          img.addEventListener('click', () => {
+            const lightbox = document.getElementById('lightbox-modal');
+            const lightboxImg = document.getElementById('lightbox-img');
+            if (lightbox && lightboxImg) {
+              lightboxImg.src = imgSrc;
+              lightbox.classList.remove('hidden');
+              lightbox.style.pointerEvents = 'auto';
+            }
+          });
+
           img.onerror = () => {
             const errorFallback = document.createElement('div');
             errorFallback.style.width = '100%';
@@ -433,6 +443,22 @@ document.addEventListener('DOMContentLoaded', () => {
           };
           slidesWrapper.appendChild(img);
         });
+
+        // Lightbox Close Logic
+        const lightbox = document.getElementById('lightbox-modal');
+        const closeBtn = document.querySelector('.lightbox-close');
+        if (lightbox) {
+          const closeLightbox = () => {
+            lightbox.classList.add('hidden');
+            lightbox.style.pointerEvents = 'none';
+          };
+          if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+          lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+              closeLightbox();
+            }
+          });
+        }
 
         if (dotsContainer) {
           dotsContainer.innerHTML = '';

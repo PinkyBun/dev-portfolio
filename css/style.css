@@ -3574,6 +3574,52 @@ section {
   height: 100%;
   object-fit: contain;
   flex-shrink: 0;
+  cursor: pointer;
+}
+
+/* Lightbox Modal Styles */
+.lightbox-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox-modal.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(167, 139, 250, 0.2);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+  z-index: 10001;
+}
+
+.lightbox-close:hover {
+  color: var(--accent);
 }
 
 .slider-nav-btn {
