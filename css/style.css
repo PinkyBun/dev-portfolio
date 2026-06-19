@@ -3125,6 +3125,20 @@ section {
 
   .navbar-wrapper {
     padding: 0 1.5rem;
+    height: 65px;
+  }
+
+  .navbar-container.scrolled .navbar-wrapper {
+    height: 60px;
+  }
+
+  .hero-section {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 90px;
+    padding-bottom: 2rem;
+    display: flex;
+    align-items: center;
   }
 
   .hero-wrapper {
@@ -3242,10 +3256,10 @@ section {
 
   .nav-menu {
     position: fixed;
-    top: 80px;
+    top: 65px;
     left: 0;
     width: 100%;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 65px);
     background-color: var(--bg-primary);
     border-top: 1px solid var(--border-color);
     padding: 3rem 2rem;
@@ -3256,8 +3270,8 @@ section {
   }
 
   .navbar-container.scrolled .nav-menu {
-    top: 70px;
-    height: calc(100vh - 70px);
+    top: 60px;
+    height: calc(100vh - 60px);
   }
 
   .nav-menu.active {
